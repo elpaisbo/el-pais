@@ -9,3 +9,21 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Acciones {
+  id       Int @id @default(autoincrement())
+  cantidad Int
+}
+
+model Registro {
+  id           Int      @id @default(autoincrement())
+  nombre       String
+  nacionalidad String
+  domicilio    String
+  idcompra     String   @unique
+  acciones     Int
+  email        String
+  adquisicion  DateTime @default(now())
+  telefono     String
+  ci           String
+}
