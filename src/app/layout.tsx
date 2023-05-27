@@ -9,7 +9,7 @@ import { ShoppingCartProvider } from "../../context/ShoppingCartProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
+const metadata = {
     title: "Acciones El País Tarija",
     description:
         "Compra acciones de nuestra empresa para formar parte de nosotros",
