@@ -8,6 +8,7 @@ import Image from "next/image";
 import { Dispatch, SetStateAction, useState } from "react";
 import NavMenu from "./NavMenu";
 import { navLinks } from "../app/data/Data";
+import Link from "next/link";
 
 type NavProps = {
     setNavMenu: Dispatch<SetStateAction<boolean>>;
@@ -18,7 +19,14 @@ export default function Nav({ setNavMenu }: NavProps) {
     return (
         <nav className="flex sticky top-0 bg-white-transparent justify-between py-5 items-center gap-4 px-6 sm:px-16 md:px-20 lg:px-30 shadow-md">
             <div>
-                <Image src={Logo} alt="Logo El País" width={200} height={150} />
+                <Link href={"."}>
+                    <Image
+                        src={Logo}
+                        alt="Logo El País"
+                        width={200}
+                        height={150}
+                    />
+                </Link>
             </div>
             <div className="flex items-center gap-4">
                 <div className=" hidden lg:flex items-center gap-2 ">

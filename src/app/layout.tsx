@@ -7,6 +7,7 @@ import Nav from "../components/Nav";
 import NavMenu from "@/components/NavMenu";
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,6 +35,7 @@ export default function RootLayout({
                     </AnimatePresence>
                     <Nav setNavMenu={setNavMenu} />
                     {children}
+                    <Footer />
                 </body>
             </ShoppingCartProvider>
         </html>

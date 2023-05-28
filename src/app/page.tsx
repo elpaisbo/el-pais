@@ -5,6 +5,7 @@ import DocumentIcon from "../../public/images/icons/accionesCarrito.jpg";
 import Carrito from "@/components/Carrito";
 import RegisterForm from "@/components/RegisterForm";
 import InfoPdf from "@/components/InfoPdf";
+import Banner3 from "../../public/images/banners/banner3.jpg";
 
 export default function Home() {
     return (
@@ -27,6 +28,12 @@ export default function Home() {
             <Carrito />
             <RegisterForm />
             <InfoPdf />
+            <Banner
+                key="recorrido"
+                alt="Banner Recorrido"
+                img={Banner3}
+                to="."
+            />
         </main>
     );
 }
