@@ -1,8 +1,10 @@
 import Image from "next/image";
 import Banner from "@/components/Banner";
-import { bannersInicio } from "../../data/Data";
+import { bannersInicio } from "./data/Data";
 import DocumentIcon from "../../public/images/icons/accionesCarrito.jpg";
 import Carrito from "@/components/Carrito";
+import RegisterForm from "@/components/RegisterForm";
+import InfoPdf from "@/components/InfoPdf";
 
 export default function Home() {
     return (
@@ -23,6 +25,8 @@ export default function Home() {
                 height={50}
             />
             <Carrito />
+            <RegisterForm />
+            <InfoPdf />
         </main>
     );
 }

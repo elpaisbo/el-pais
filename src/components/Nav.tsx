@@ -3,11 +3,11 @@
 import NavLink from "@/components/NavLink";
 import Logo from "../../public/images/logos/logo.png";
 import { IconoirProvider, ShoppingBag, Menu } from "iconoir-react";
-import useCart from "../../hooks/useShoppingCart";
+import useCart from "../app/hooks/useShoppingCart";
 import Image from "next/image";
 import { Dispatch, SetStateAction, useState } from "react";
 import NavMenu from "./NavMenu";
-import { navLinks } from "../../data/Data";
+import { navLinks } from "../app/data/Data";
 
 type NavProps = {
     setNavMenu: Dispatch<SetStateAction<boolean>>;
@@ -26,7 +26,7 @@ export default function Nav({ setNavMenu }: NavProps) {
                         <NavLink key={link.to} text={link.text} to={link.to} />
                     ))}
                 </div>
-                <div className="flex items-center order-2 pt-2">
+                <div className="flex items-center order-2 pt-2 lg:hidden">
                     <button onClick={() => setNavMenu(true)}>
                         <IconoirProvider
                             iconProps={{

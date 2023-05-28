@@ -2,14 +2,15 @@
 import { useState } from "react";
 import Button from "./Button";
 import { IconoirProvider, Cart } from "iconoir-react";
+import useCart from "@/app/hooks/useShoppingCart";
 
 function Carrito() {
-    const [carrito, setCarrito] = useState(0);
+    const { cart, setCart } = useCart();
     function agregar() {
-        setCarrito(carrito + 1);
+        setCart((carrito) => carrito + 1);
     }
     function quitar() {
-        setCarrito((carrito) => (carrito > 0 ? carrito - 1 : 0));
+        setCart((carrito) => (carrito > 0 ? carrito - 1 : 0));
     }
     return (
         <div className="flex gap-4">
@@ -18,7 +19,7 @@ function Carrito() {
                 z-10
             >
                 <Button text="-" onClick={quitar} />
-                <p className="text-center">{carrito}</p>
+                <p className="text-center">{cart}</p>
                 <Button text="+" onClick={agregar} />
             </div>
             <button className="bg-red-500 flex items-center p-4 rounded-md text-white gap-2">

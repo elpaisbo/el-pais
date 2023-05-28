@@ -2,7 +2,7 @@
 
 import "./globals.css";
 import { Inter } from "next/font/google";
-import { ShoppingCartProvider } from "../../context/ShoppingCartProvider";
+import { ShoppingCartProvider } from "./context/ShoppingCartProvider";
 import Nav from "../components/Nav";
 import NavMenu from "@/components/NavMenu";
 import { useState } from "react";
