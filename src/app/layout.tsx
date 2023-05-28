@@ -22,6 +22,9 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
+            <meta charSet="UTF'8" />
+            <link rel="icon" href="./favicon.ico" />
+            <title>Acciones El País Tarija</title>
             <ShoppingCartProvider>
                 <body className={inter.className}>
                     <Nav />

@@ -1,6 +1,8 @@
 import Image from "next/image";
-import Banner from "../../components/Banner";
+import Banner from "@/components/Banner";
 import { bannersInicio } from "../../data/Data";
+import DocumentIcon from "../../public/images/icons/accionesCarrito.jpg";
+import Carrito from "@/components/Carrito";
 
 export default function Home() {
     return (
@@ -14,6 +16,13 @@ export default function Home() {
                 />
             ))}
             <p className="text-center">En base a los EEFF al 31/12/2022</p>
+            <Image
+                src={DocumentIcon}
+                alt="Icono accion"
+                width={100}
+                height={50}
+            />
+            <Carrito />
         </main>
     );
 }
