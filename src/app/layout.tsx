@@ -38,7 +38,7 @@ export default function RootLayout({
 function Nav() {
     const { cart } = useCart();
     return (
-        <nav className="flex sticky justify-between py-5 items-center gap-4 px-6 sm:px-16 md:px-20 lg:px-30">
+        <nav className="flex sticky top-0 bg-white-transparent justify-between py-5 items-center gap-4 px-6 sm:px-16 md:px-20 lg:px-30">
             <div>
                 <Image src={Logo} alt="Logo El País" width={200} height={150} />
             </div>
