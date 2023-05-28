@@ -44,6 +44,7 @@ function NavMenu({ setNavMenu }: NavMenuProps) {
                 <NavLink text="Inicio" to="/" setNavMenu={setNavMenu} />
                 {navLinks.map((navLink) => (
                     <NavLink
+                        key={navLink.to}
                         text={navLink.text}
                         to={navLink.to}
                         setNavMenu={setNavMenu}

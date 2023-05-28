@@ -39,6 +39,7 @@ function RegisterForm() {
 
     const dynamicForm = [
         <motion.form
+            key={0}
             variants={animation}
             initial="hidden"
             animate="visible"
@@ -56,8 +57,8 @@ function RegisterForm() {
                 />
             ))}
         </motion.form>,
-        <Resumen />,
-        <Pago data={data} />,
+        <Resumen key={1} />,
+        <Pago key={2} data={data} />,
     ];
 
     function onSubmit(data: RegisterFormValues) {
