@@ -7,13 +7,11 @@ export const bannersInicio = [
         img: Banner1,
         alt: "Banner precio acciones",
         to: "#form",
-        type: "normal",
     },
     {
         id: 2,
         img: Banner2,
         alt: "Banner rentabilidad",
         to: "/actividades",
-        type: "link",
     },
 ];

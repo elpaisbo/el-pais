@@ -6,21 +6,14 @@ type BannerProps = {
     img: StaticImageData;
     alt: string;
     to: string;
-    type: string;
 };
 
-function Banner({ img, alt, to, type }: BannerProps) {
+function Banner({ img, alt, to }: BannerProps) {
     return (
         <div>
-            {type === "link" ? (
-                <Link href={to} replace>
-                    <Image src={img} alt={alt} />
-                </Link>
-            ) : (
-                <a href={to}>
-                    <Image src={img} alt={alt} />
-                </a>
-            )}
+            <Link href={to}>
+                <Image src={img} alt={alt} />
+            </Link>
         </div>
     );
 }
