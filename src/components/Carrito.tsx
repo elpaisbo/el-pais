@@ -14,7 +14,7 @@ function Carrito() {
     return (
         <div className="flex gap-4">
             <div
-                className="grid grid-cols-3 items-center border-2 border-red-500 rounded-md"
+                className="grid grid-cols-3 place-items-center border-2 border-red-500 rounded-md"
                 z-10
             >
                 <Button text="-" onClick={quitar} />

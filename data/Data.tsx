@@ -15,3 +15,14 @@ export const bannersInicio = [
         to: "/actividades",
     },
 ];
+
+export const navLinks = [
+    {
+        text: "Derechos de los Accionistas",
+        to: "/derechos",
+    },
+    {
+        text: "Actividades de la Empresa",
+        to: "/actividades",
+    },
+];

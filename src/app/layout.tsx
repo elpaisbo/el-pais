@@ -1,11 +1,12 @@
 "use client";
-import Image from "next/image";
+
 import "./globals.css";
 import { Inter } from "next/font/google";
-import Logo from "../../public/images/logos/logo.png";
-import { IconoirProvider, ShoppingBag } from "iconoir-react";
-import useCart from "../../hooks/useShoppingCart";
 import { ShoppingCartProvider } from "../../context/ShoppingCartProvider";
+import Nav from "../components/Nav";
+import NavMenu from "@/components/NavMenu";
+import { useState } from "react";
+import { AnimatePresence } from "framer-motion";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +21,7 @@ export default function RootLayout({
 }: {
     children: React.ReactNode;
 }) {
+    const [navMenu, setNavMenu] = useState(false);
     return (
         <html lang="en">
             <meta charSet="UTF'8" />
@@ -27,37 +29,13 @@ export default function RootLayout({
             <title>Acciones El País Tarija</title>
             <ShoppingCartProvider>
                 <body className={inter.className}>
-                    <Nav />
+                    <AnimatePresence>
+                        {navMenu && <NavMenu setNavMenu={setNavMenu} />}
+                    </AnimatePresence>
+                    <Nav setNavMenu={setNavMenu} />
                     {children}
                 </body>
             </ShoppingCartProvider>
         </html>
-    );
-}
-
-function Nav() {
-    const { cart } = useCart();
-    return (
-        <nav className="flex sticky top-0 bg-white-transparent justify-between py-5 items-center gap-4 px-6 sm:px-16 md:px-20 lg:px-30">
-            <div>
-                <Image src={Logo} alt="Logo El País" width={200} height={150} />
-            </div>
-            <div className="relative grid justify-items-center">
-                <IconoirProvider
-                    iconProps={{
-                        width: "3rem",
-                        height: "3rem",
-                        color: "red",
-                        strokeWidth: 1.25,
-                    }}
-                >
-                    <p className="absolute top-1/3 text-red-500 font-bold">
-                        {cart}
-                    </p>
-
-                    <ShoppingBag />
-                </IconoirProvider>
-            </div>
-        </nav>
     );
 }
