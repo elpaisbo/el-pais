@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 const nodemailer = require("nodemailer");
 
-export async function GET(reques: Request) {
+export async function GET(request: Request) {
     let testAccount = await nodemailer.createTestAccount();
 
     let transporter = nodemailer.createTransport({

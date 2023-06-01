@@ -4,7 +4,15 @@ import fs from "fs";
 import mustache from "mustache";
 import nodemailer from "nodemailer";
 
-export async function GET(request: Request) {
+type User = {
+    nombre: string;
+    email: string;
+    acciones: number;
+};
+
+export async function POST(request: Request) {
+    const user: User = await request.json();
+
     let transporter = nodemailer.createTransport({
         host: "m40.siteground.biz",
         port: 465,
@@ -16,9 +24,9 @@ export async function GET(request: Request) {
     });
 
     const data = {
-        nombre: "John",
-        acciones: 10,
-        precio: 10000,
+        nombre: user.nombre,
+        acciones: user.acciones,
+        precio: user.acciones * 2,
     };
 
     const browser = await puppeteer.launch({ args: ["--no-sandbox"] });
@@ -47,8 +55,8 @@ export async function GET(request: Request) {
 
     let mailOptions = {
         from: "info@acciones-elpaistarija.com",
-        to: "vanetejerina314@gmail.com",
-        subject: "Sending Email using Node.js",
+        to: user.email,
+        subject: "Sending Email using Node.js pdf",
         attachments: [
             {
                 filename: "result.pdf",
