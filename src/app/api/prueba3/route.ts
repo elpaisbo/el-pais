@@ -3,7 +3,7 @@ const puppeteer = require("puppeteer");
 const fs = require("fs");
 import mustache from "mustache";
 
-export async function GET() {
+export async function POST(request: Request) {
     const data = {
         nombre: "John",
         acciones: 10,
