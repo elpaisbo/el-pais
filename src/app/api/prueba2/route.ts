@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
-import puppeteer from "puppeteer";
+const puppeteer = require("puppeteer");
 import fs from "fs";
 import mustache from "mustache";
-import nodemailer from "nodemailer";
+const nodemailer = require("nodemailer");
 
 type User = {
     nombre: string;
