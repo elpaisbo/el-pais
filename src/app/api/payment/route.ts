@@ -8,12 +8,15 @@ const prismaClient = new PrismaClient();
 export async function GET(request: NextRequest) {
     const query =
         request.nextUrl.searchParams.get("transaction_id") || undefined;
-    const payment =
-        (await prismaClient.deuda.findUnique({
-            where: {
-                idDeuda: query,
-            },
-        })) || undefined;
+
+    console.warn("query", query);
+    console.info("queryINFO", query);
+    console.error("queryERROR", query);
+    const payment = await prismaClient.deuda.findUnique({
+        where: {
+            idDeuda: query,
+        },
+    });
 
     const template: Template = {
         schemas: [
