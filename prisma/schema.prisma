@@ -30,3 +30,18 @@ model Registro {
   telefono     String
   ci           String
 }
+
+model Deuda {
+  id           Int      @id @default(autoincrement())
+  idDeuda      String   @unique
+  nombre       String
+  apellido     String
+  nacionalidad String
+  domicilio    String
+  idcompra     String   @unique
+  acciones     Int
+  email        String
+  adquisicion  DateTime @default(now())
+  telefono     String
+  ci           String
+}

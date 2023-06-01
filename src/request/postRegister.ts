@@ -7,7 +7,7 @@ export const postRegister = async (post: Partial<Register>) => {
                 "Content-Type": "application/json",
             },
         });
-        // console.log(res);
+        console.log(res);
         return res;
     } catch (err: any) {
         if (err.response) {

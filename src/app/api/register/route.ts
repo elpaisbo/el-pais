@@ -6,6 +6,12 @@ const prismaClient = new PrismaClient();
 const LibelulaURL =
     process.env.LIB_URL || "https://api.todotix.com/rest/deuda/registrar";
 
+type Req = {
+    data: {
+        id_transaccion: string;
+    };
+};
+
 export async function POST(request: Request) {
     const user = await request.json();
     const {
@@ -30,7 +36,7 @@ export async function POST(request: Request) {
             {
                 cantidad: acciones,
                 concepto: "Acciones El Pais",
-                costo_unitario: 100,
+                costo_unitario: 1,
             },
         ],
         lineas_metadatos: [
@@ -53,6 +59,21 @@ export async function POST(request: Request) {
     const res = await axios.post(LibelulaURL, payment, {
         headers: {
             "Content-Type": "application/json",
+        },
+    });
+
+    const newPayment = await prismaClient.deuda.create({
+        data: {
+            acciones,
+            ci,
+            email,
+            nombre,
+            apellido,
+            domicilio,
+            nacionalidad,
+            telefono,
+            idDeuda: res.data.id_transaccion,
+            idcompra: payment.identificador_deuda,
         },
     });
     return NextResponse.json(res.data);
