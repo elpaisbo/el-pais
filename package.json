@@ -39,6 +39,7 @@
     },
     "devDependencies": {
         "@types/mustache": "^4.2.2",
+        "@types/pdfkit": "^0.12.9",
         "prisma": "^4.14.1"
     }
 }
