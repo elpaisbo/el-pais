@@ -4,6 +4,8 @@ const fs = require("fs");
 const nodemailer = require("nodemailer");
 import { Deuda, PrismaClient } from "@prisma/client";
 const prismaClient = new PrismaClient();
+const emailUser = process.env.EMAIL_USER;
+const pass = process.env.EMAIL_PASS;
 
 export async function GET(request: NextRequest) {
     const query =
@@ -100,13 +102,13 @@ export async function GET(request: NextRequest) {
         port: 465,
         secure: true, // upgrade later with STARTTLS
         auth: {
-            user: "info@acciones-elpaistarija.com",
-            pass: "Superacciones",
+            user: emailUser,
+            pass,
         },
     });
 
     let mailOptions = {
-        from: "info@acciones-elpaistarija.com",
+        from: emailUser,
         to: payment?.email,
         subject: "Acción(es) comprada(s) de El País S.A.",
         html: "<h1>¡Felicidades!</h1><p>Ya eres dueñ@ de El País S.A. 🥳</p>",
