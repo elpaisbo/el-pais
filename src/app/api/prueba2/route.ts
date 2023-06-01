@@ -57,13 +57,21 @@ export async function GET(request: Request) {
             },
         ],
     };
+    let newError = {};
+    let newResponse = {};
 
     transporter.sendMail(mailOptions, function (error: any, info: any) {
         if (error) {
+            newError = error;
             console.log(error);
         } else {
+            newResponse = info.response;
             console.log("Email sent: " + info.response);
         }
     });
-    return NextResponse.json("Se genero el pdf");
+    return NextResponse.json({
+        ...newError,
+        ...newResponse,
+        pdf: "Se genero el pdf",
+    });
 }
