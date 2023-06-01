@@ -98,7 +98,7 @@ export async function POST(request: Request) {
     const pdf = await generate({ template, inputs });
 
     // Node.js
-    fs.writeFileSync("test.pdf", pdf);
+    fs.writeFileSync("/tmp/test.pdf", pdf);
 
     // Browser
     // const blob = new Blob([pdf.buffer], { type: "application/pdf" });
@@ -123,7 +123,7 @@ export async function POST(request: Request) {
         attachments: [
             {
                 filename: "test.pdf",
-                path: "test.pdf",
+                path: "/tmp/test.pdf",
                 contentType: "application/pdf",
             },
         ],
