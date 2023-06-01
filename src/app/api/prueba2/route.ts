@@ -3,7 +3,7 @@ const puppeteer = require("puppeteer");
 const fs = require("fs");
 import mustache from "mustache";
 
-async function GET() {
+export async function GET() {
     const data = {
         nombre: "John",
         acciones: 10,
@@ -35,4 +35,3 @@ async function GET() {
     console.log("Se genero el pdf");
     return NextResponse.json("Se genero el pdf");
 }
-export default GET;
