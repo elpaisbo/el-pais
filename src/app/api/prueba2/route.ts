@@ -1,3 +1,4 @@
+"use client";
 import { NextResponse } from "next/server";
 const puppeteer = require("puppeteer");
 const fs = require("fs");
