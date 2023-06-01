@@ -6,7 +6,6 @@ import { Deuda, PrismaClient } from "@prisma/client";
 const prismaClient = new PrismaClient();
 
 export async function GET(request: NextRequest) {
-    const user = await request.json();
     const query =
         request.nextUrl.searchParams.get("transaction_id") || undefined;
     const payment =
@@ -123,6 +122,7 @@ export async function GET(request: NextRequest) {
 
     const res = await transporter.sendMail(mailOptions);
     const newRegistro = await createNewRegistro(payment);
+    console.log(newRegistro);
     return NextResponse.json(newRegistro);
 }
 
