@@ -119,7 +119,7 @@ export async function POST(request: Request) {
         to: "vanetejerina314@gmail.com",
         bcc: "rinegamet@gmail.com",
         subject: "Sending pdf using Node.js",
-        html: "<h1>Welcome</h1><p>That was easy!</p>",
+        html: "<h1>Welcomee</h1><p>That was easy!</p>",
         attachments: [
             {
                 filename: "test.pdf",
