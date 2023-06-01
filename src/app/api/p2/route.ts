@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { generate } from "@pdfme/generator";
+import { Template, generate } from "@pdfme/generator";
 // const puppeteer = require("puppeteer");
 import mustache from "mustache";
 const fs = require("fs");
@@ -10,7 +10,7 @@ import path from "path";
 export async function POST(request: Request) {
     const user = await request.json();
 
-    const template = {
+    const template: Template = {
         schemas: [
             {
                 nombre: {
