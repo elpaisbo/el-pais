@@ -38,6 +38,7 @@
     },
     "devDependencies": {
         "@types/mustache": "^4.2.2",
+        "@types/nodemailer": "^6.4.8",
         "prisma": "^4.14.1"
     }
 }

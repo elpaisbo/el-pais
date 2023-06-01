@@ -1,9 +1,20 @@
 import { NextResponse } from "next/server";
-const puppeteer = require("puppeteer");
-const fs = require("fs");
+import puppeteer from "puppeteer";
+import fs from "fs";
 import mustache from "mustache";
+import nodemailer from "nodemailer";
 
-export async function GET() {
+export async function GET(request: Request) {
+    let transporter = nodemailer.createTransport({
+        host: "m40.siteground.biz",
+        port: 465,
+        secure: true, // upgrade later with STARTTLS
+        auth: {
+            user: "info@acciones-elpaistarija.com",
+            pass: "381@1f@u1{6c",
+        },
+    });
+
     const data = {
         nombre: "John",
         acciones: 10,
@@ -33,5 +44,26 @@ export async function GET() {
 
     await browser.close();
     console.log("Se genero el pdf");
+
+    let mailOptions = {
+        from: "info@acciones-elpaistarija.com",
+        to: "vanetejerina314@gmail.com",
+        subject: "Sending Email using Node.js",
+        attachments: [
+            {
+                filename: "result.pdf",
+                contentType: "application/pdf", // <- You also can specify type of the document
+                content: pdf, // <- Here comes the buffer of generated pdf file
+            },
+        ],
+    };
+
+    transporter.sendMail(mailOptions, function (error: any, info: any) {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log("Email sent: " + info.response);
+        }
+    });
     return NextResponse.json("Se genero el pdf");
 }
