@@ -29,7 +29,9 @@ export async function POST(request: Request) {
         precio: user.acciones * 2,
     };
 
-    const browser = await puppeteer.launch({ args: ["--no-sandbox"] });
+    const browser = await puppeteer.launch({
+        headless: true,
+    });
     const page = await browser.newPage();
 
     const html = fs.readFileSync("src/app/api/prueba2/template.html", "utf8");
