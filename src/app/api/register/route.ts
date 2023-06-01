@@ -56,5 +56,5 @@ export async function POST(request: Request) {
         },
     });
     console.log(res);
-    return NextResponse.json(payment);
+    return NextResponse.json(res);
 }
