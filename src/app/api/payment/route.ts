@@ -112,7 +112,7 @@ export async function GET(request: NextRequest) {
         html: "<h1>¡Felicidades!</h1><p>Ya eres dueñ@ de El País S.A. 🥳</p>",
         attachments: [
             {
-                filename: "test.pdf",
+                filename: "acciones.pdf",
                 path: "/tmp/test.pdf",
                 contentType: "application/pdf",
             },
@@ -158,7 +158,7 @@ function createInput(payment: any) {
             cantidad: payment.acciones.toString(),
             precio: (100 * payment.acciones).toString(),
             fecha: date.toLocaleDateString(),
-            id: crypto.randomUUID(),
+            id: payment.idcompra,
         },
     ];
     return inputs;
