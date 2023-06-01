@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Libelula from "../../public/images/logos/libelula.jpg";
 import useCart from "@/app/hooks/useShoppingCart";
+import { useMutation } from "@tanstack/react-query";
+import { postRegister } from "@/request/postRegister";
 
 function Pago({ data }: any) {
     const { cart } = useCart();
@@ -13,6 +15,14 @@ function Pago({ data }: any) {
         exit: { opacity: 0 },
     };
     const newData = { ...data, acciones: cart };
+    const mutation = useMutation({
+        mutationFn: postRegister,
+    });
+
+    function handleSubmit() {
+        mutation.mutate(newData);
+    }
+
     return (
         <motion.div
             variants={animation}
@@ -32,7 +42,7 @@ function Pago({ data }: any) {
                 />
             </div>
             <button
-                onClick={() => console.log(newData)}
+                onClick={handleSubmit}
                 className="bg-red-500 text-white my-4 p-2 w-full justify-self-end rounded-md"
             >
                 Realizar el pago

@@ -8,7 +8,7 @@ import NavMenu from "@/components/NavMenu";
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import Footer from "@/components/Footer";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const queryClient = new QueryClient();
 

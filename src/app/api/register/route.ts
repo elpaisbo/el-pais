@@ -1,33 +1,36 @@
-import { useRegisterStore } from "@/app/store/store";
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
+import axios from "axios";
 
 const prismaClient = new PrismaClient();
+const LibelulaURL =
+    process.env.LIB_URL || "https://api.todotix.com/rest/deuda/registrar";
 
 export async function POST(request: Request) {
+    const user = await request.json();
     const {
         nombre,
         apellido,
-        nacionalidad,
-        email,
         ci,
         domicilio,
+        nacionalidad,
+        email,
         telefono,
         acciones,
-    }: Partial<Register> = await request.json();
-    console.log(crypto.randomUUID());
+    } = user;
     const payment = {
         appkey: process.env.API_KEY,
-        email,
+        email_cliente: email,
+        descripcion: "Acciones El Pais, compra online",
         identificador_deuda: crypto.randomUUID(),
-        callback_url: "http://localhost:3000/api/payment",
-        url_retorno: "http://localhost:3000/success",
+        callback_url: "https://www.acciones-elpaistarija.com/api/payment",
+        url_retorno: "https://www.acciones-elpaistarija.com/exito",
         numero_documento: ci,
         lineas_detalle_deuda: [
             {
                 cantidad: acciones,
                 concepto: "Acciones El Pais",
-                costo_unitario: 100,
+                costo_unitario: 4,
             },
         ],
         lineas_metadatos: [
@@ -47,7 +50,11 @@ export async function POST(request: Request) {
         nombre_cliente: nombre,
         apellido_cliente: apellido,
     };
-    // console.log(setRegister);
-    // setRegister(register);
-    // return NextResponse.json(res);
+    const res = await axios.post(LibelulaURL, payment, {
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+    console.log(res);
+    return NextResponse.json(payment);
 }
