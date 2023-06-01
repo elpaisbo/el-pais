@@ -30,7 +30,7 @@ export async function POST(request: Request) {
             {
                 cantidad: acciones,
                 concepto: "Acciones El Pais",
-                costo_unitario: 4,
+                costo_unitario: 1,
             },
         ],
         lineas_metadatos: [
@@ -55,6 +55,5 @@ export async function POST(request: Request) {
             "Content-Type": "application/json",
         },
     });
-    console.log(res);
-    return NextResponse.json(res);
+    return NextResponse.json(res.data);
 }
