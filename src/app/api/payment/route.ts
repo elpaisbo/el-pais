@@ -10,14 +10,13 @@ export async function GET(request: NextRequest) {
         request.nextUrl.searchParams.get("transaction_id") || undefined;
 
     console.warn("query", query);
-    console.info("queryINFO", query);
-    console.error("queryERROR", query);
-    const payment = await prismaClient.deuda.findUnique({
-        where: {
-            idDeuda: query,
-        },
-    });
-
+    const payment =
+        (await prismaClient.deuda.findUnique({
+            where: {
+                idDeuda: query,
+            },
+        })) || undefined;
+    console.warn(payment);
     const template: Template = {
         schemas: [
             {
