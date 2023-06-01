@@ -98,7 +98,7 @@ export async function POST(request: Request) {
     const pdf = await generate({ template, inputs });
 
     // Node.js
-    fs.writeFileSync(path.join("test.pdf"), pdf);
+    fs.writeFileSync("/tmp/test.pdf", pdf);
 
     // Browser
     // const blob = new Blob([pdf.buffer], { type: "application/pdf" });
