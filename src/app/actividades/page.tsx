@@ -12,6 +12,7 @@ import Creciendo from "../../../public/images/icons/creciendo.png";
 import BannerPlan from "../../../public/images/banners/bannerPlan.jpg";
 import AccionesRight from "../../../public/images/icons/accionesRight.png";
 import Alerta from "../../../public/images/icons/alert.png";
+import Link from "next/link";
 
 const planes = [
     "Afianzamiento digital",
@@ -124,9 +125,15 @@ function Actividades() {
                     Si deseas saber el porqué revisa nuestro documento de Formas
                     de Financiamiento
                 </p>
-                <button className="bg-black text-white p-3 rounded-md">
-                    Formas de financiamiento
-                </button>
+                <Link
+                    href={
+                        "https://drive.google.com/file/d/1OR97nBWzGsc_FT8T_rp4AEJGp1w4qyS8/view?usp=sharing"
+                    }
+                >
+                    <button className="bg-black text-white p-3 rounded-md">
+                        Formas de financiamiento
+                    </button>
+                </Link>
             </div>
         </div>
     );

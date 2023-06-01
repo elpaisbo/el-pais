@@ -17,9 +17,9 @@ type NavProps = {
 export default function Nav({ setNavMenu }: NavProps) {
     const { cart } = useCart();
     return (
-        <nav className="flex sticky top-0 bg-white-transparent justify-between py-5 items-center gap-4 px-6 sm:px-16 md:px-20 lg:px-30 shadow-md">
+        <nav className="flex sticky top-0 bg-white-transparent justify-between py-5 items-center gap-4 px-6 sm:px-16 md:px-20 lg:px-30 shadow-md z-10">
             <div>
-                <Link href={"."}>
+                <Link href={"https://elpais.bo/"}>
                     <Image
                         src={Logo}
                         alt="Logo El País"

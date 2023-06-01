@@ -19,6 +19,10 @@ export const bannersInicio = [
 
 export const navLinks = [
     {
+        text: "Inicio",
+        to: "/",
+    },
+    {
         text: "Derechos de los Accionistas",
         to: "/derechos",
     },

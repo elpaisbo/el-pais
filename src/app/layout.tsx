@@ -8,6 +8,9 @@ import NavMenu from "@/components/NavMenu";
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import Footer from "@/components/Footer";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const queryClient = new QueryClient();
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,20 +27,22 @@ export default function RootLayout({
 }) {
     const [navMenu, setNavMenu] = useState(false);
     return (
-        <html lang="en">
-            <meta charSet="UTF'8" />
-            <link rel="icon" href="./favicon.ico" />
-            <title>Acciones El País Tarija</title>
-            <ShoppingCartProvider>
-                <body className={inter.className}>
-                    <AnimatePresence>
-                        {navMenu && <NavMenu setNavMenu={setNavMenu} />}
-                    </AnimatePresence>
-                    <Nav setNavMenu={setNavMenu} />
-                    {children}
-                    <Footer />
-                </body>
-            </ShoppingCartProvider>
-        </html>
+        <QueryClientProvider client={queryClient}>
+            <html lang="en">
+                <meta charSet="UTF'8" />
+                <link rel="icon" href="./favicon.ico" />
+                <title>Acciones El País Tarija</title>
+                <ShoppingCartProvider>
+                    <body className={inter.className}>
+                        <AnimatePresence>
+                            {navMenu && <NavMenu setNavMenu={setNavMenu} />}
+                        </AnimatePresence>
+                        <Nav setNavMenu={setNavMenu} />
+                        {children}
+                        <Footer />
+                    </body>
+                </ShoppingCartProvider>
+            </html>
+        </QueryClientProvider>
     );
 }

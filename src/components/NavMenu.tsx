@@ -41,7 +41,7 @@ function NavMenu({ setNavMenu }: NavMenuProps) {
                         <Cancel />
                     </IconoirProvider>
                 </button>
-                <NavLink text="Inicio" to="/" setNavMenu={setNavMenu} />
+                {/* <NavLink text="Inicio" to="/" setNavMenu={setNavMenu} /> */}
                 {navLinks.map((navLink) => (
                     <NavLink
                         key={navLink.to}

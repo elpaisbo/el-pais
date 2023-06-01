@@ -47,7 +47,7 @@ function RegisterForm() {
             className="grid gap-2"
             onSubmit={methods.handleSubmit(onSubmit)}
         >
-            <h2 className="text-red-500 font-bold">Detalles de Facturación</h2>
+            <h2 className="text-red-500 font-bold">Detalles de Compra</h2>
             {formInputs.map((input) => (
                 <Input
                     key={input.id}
@@ -74,7 +74,7 @@ function RegisterForm() {
 
     return (
         <div
-            className="flex flex-col w-full gap-5 bg-gray-300 rounded-sm px-8 py-6 md:w-2/4"
+            className="flex flex-col w-full gap-5 bg-gray-300 rounded-sm  px-3 sm:px-8 py-6 md:w-2/4"
             id="form"
         >
             <div>
@@ -89,11 +89,12 @@ function RegisterForm() {
             <FormProvider {...methods}>
                 <AnimatePresence>{dynamicForm[step]}</AnimatePresence>
             </FormProvider>
-            <div className="flex justify-between">
+            <div className="flex flex-col sm:flex-row sm:justify-between">
                 {step > 0 && (
                     <button
                         onClick={() => setStep((prev) => prev - 1)}
-                        className="bg-black text-white my-4 p-2 w-2/5 self-end rounded-md"
+                        className="bg-black text-white my-4 p-2 w-full
+                        sm:w-2/5 sm:self-end rounded-md"
                     >
                         Atrás
                     </button>
@@ -101,7 +102,7 @@ function RegisterForm() {
                 {step < 2 && (
                     <button
                         onClick={methods.handleSubmit(handleNext)}
-                        className="bg-black text-white my-4 p-2 w-2/5 justify-self-end rounded-md"
+                        className="bg-black text-white my-4 p-2 w-full sm:w-2/5  rounded-md"
                     >
                         Siguiente
                     </button>

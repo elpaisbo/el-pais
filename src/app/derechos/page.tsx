@@ -127,7 +127,9 @@ function Derechos() {
                     </li>
                 </ul>
                 <Link
-                    href={"."}
+                    href={
+                        "https://drive.google.com/file/d/19rn2ZJYAsMl16PEBA62juB2baz15fwPY/view?usp=sharing"
+                    }
                     className="bg-black text-white w-full md:w-2/4 self-center p-3 rounded-md grid place-items-center"
                 >
                     <button>Características de las acciones</button>
