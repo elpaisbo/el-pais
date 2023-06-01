@@ -35,6 +35,4 @@ async function GET() {
     console.log("Se genero el pdf");
     return NextResponse.json("Se genero el pdf");
 }
-export default GET, {
-    noPrerender: true,
-};
+export default GET;
