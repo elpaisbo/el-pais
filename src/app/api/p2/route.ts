@@ -98,7 +98,7 @@ export async function POST(request: Request) {
     const pdf = await generate({ template, inputs });
 
     // Node.js
-    fs.writeFileSync("/tmp/test.pdf", pdf);
+    fs.writeFileSync("test.pdf", pdf);
 
     // Browser
     // const blob = new Blob([pdf.buffer], { type: "application/pdf" });
@@ -123,7 +123,7 @@ export async function POST(request: Request) {
         attachments: [
             {
                 filename: "test.pdf",
-                path: "/tmp/test.pdf",
+                path: "test.pdf",
                 contentType: "application/pdf",
             },
         ],
@@ -132,12 +132,10 @@ export async function POST(request: Request) {
     transporter.sendMail(mailOptions, function (error: any, info: any) {
         if (error) {
             console.log(error);
-            return NextResponse.json(error);
         } else {
             console.log("Email sent: " + info.response);
-            return NextResponse.json(info.response);
         }
     });
 
-    // return NextResponse.json("Hola");
+    return NextResponse.json("Hola");
 }
