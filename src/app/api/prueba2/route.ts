@@ -7,7 +7,7 @@ export async function GET() {
     const data = {
         nombre: "John",
         acciones: 10,
-        precio: 10000,
+        precio: 100,
     };
 
     const browser = await puppeteer.launch({ args: ["--no-sandbox"] });
