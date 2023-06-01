@@ -10,7 +10,9 @@ export async function GET() {
         precio: 10000,
     };
 
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+        args: ["--no-sandbox"],
+    });
     const page = await browser.newPage();
 
     const html = fs.readFileSync("src/app/api/prueba2/template.html", "utf8");
