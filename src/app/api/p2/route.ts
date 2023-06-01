@@ -14,9 +14,8 @@ export async function POST(request: Request) {
     const user = await request.json();
 
     const browser = await puppeteer.launch({
-        headless: "new",
+        headless: true,
         args: ["--no-sandbox"],
-        product: "firefox",
     });
 
     const page = await browser.newPage();
