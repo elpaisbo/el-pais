@@ -132,11 +132,12 @@ export async function POST(request: Request) {
     transporter.sendMail(mailOptions, function (error: any, info: any) {
         if (error) {
             console.log(error);
+            return NextResponse.json(error);
         } else {
             console.log("Email sent: " + info.response);
             return NextResponse.json(info.response);
         }
     });
 
-    return NextResponse.json(pdf);
+    return NextResponse.json("Hola");
 }
