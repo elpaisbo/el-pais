@@ -109,10 +109,9 @@ export async function GET(request: NextRequest) {
 
     let mailOptions = {
         from: "info@acciones-elpaistarija.com",
-        to: "vanetejerina314@gmail.com",
-        bcc: "rinegamet@gmail.com",
-        subject: "Sending pdf using Node.js",
-        html: "<h1>Welcomee</h1><p>That was easy!</p>",
+        to: payment?.email,
+        subject: "Acción(es) comprada(s) de El País S.A.",
+        html: "<h1>¡Felicidades!</h1><p>Ya eres dueñ@ de El País S.A. 🥳</p>",
         attachments: [
             {
                 filename: "test.pdf",
