@@ -21,7 +21,7 @@ export default function Home() {
                     lectores 40.000 acciones
                 </h2>
                 <p className="max-h-32 overflow-y-auto text-justify scrollbar px-2">
-                    El reconocido periódico El País S.A. de Bolivia, que celebra
+                    {`El reconocido periódico El País S.A. de Bolivia, que celebra
                     sus 32 años de trayectoria en junio de 2023, ha lanzado una
                     campaña de capitalización denominada "Cómprate El País". A
                     través de esta iniciativa, busca incluir a ciudadanos
@@ -34,7 +34,7 @@ export default function Home() {
                     rendimiento económico de El País S.A. ha sido favorable, y
                     se prevé un mejor desempeño empresarial para este año
                     gracias a nuevos acuerdos y la expansión de la publicidad
-                    digital en su página web{" "}
+                    digital en su página web`}{" "}
                     <Link className="text-red-500" href={"https://elpais.bo/"}>
                         El País
                     </Link>{" "}
