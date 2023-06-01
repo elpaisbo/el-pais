@@ -87,7 +87,9 @@ function RegisterForm() {
                 </Stepper>
             </div>
             <FormProvider {...methods}>
-                <AnimatePresence>{dynamicForm[step]}</AnimatePresence>
+                {/* <AnimatePresence> */}
+                {dynamicForm[step]}
+                {/* </AnimatePresence> */}
             </FormProvider>
             <div className="flex flex-col sm:flex-row sm:justify-between">
                 {step > 0 && (

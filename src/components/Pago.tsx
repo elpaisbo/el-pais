@@ -6,8 +6,12 @@ import Libelula from "../../public/images/logos/libelula.jpg";
 import useCart from "@/app/hooks/useShoppingCart";
 import { useMutation } from "@tanstack/react-query";
 import { postRegister } from "@/request/postRegister";
+import UseAnimations from "react-useanimations";
+import loading from "react-useanimations/lib/loading";
+import { useRouter } from "next/navigation";
 
 function Pago({ data }: any) {
+    const { push } = useRouter();
     const { cart } = useCart();
     const animation = {
         hidden: { x: -10, opacity: 0 },
@@ -17,6 +21,10 @@ function Pago({ data }: any) {
     const newData = { ...data, acciones: cart };
     const mutation = useMutation({
         mutationFn: postRegister,
+        onSuccess: (res) => {
+            console.log(res.data.url_pasarela_pagos);
+            push(res.data.url_pasarela_pagos);
+        },
     });
 
     function handleSubmit() {
@@ -45,7 +53,17 @@ function Pago({ data }: any) {
                 onClick={handleSubmit}
                 className="bg-red-500 text-white my-4 p-2 w-full justify-self-end rounded-md"
             >
-                Realizar el pago
+                {mutation.isLoading ? (
+                    <span className="text-white grid place-items-center">
+                        <UseAnimations
+                            animation={loading}
+                            size={24}
+                            fillColor="#fff"
+                        />
+                    </span>
+                ) : (
+                    <p>{"Realizar el pago"}</p>
+                )}
             </button>
             <p>
                 Tu data personal será utilizada para procesar tu compra, será

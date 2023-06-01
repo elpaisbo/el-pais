@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server";
 
-const puppeteer = require("puppeteer");
+// const puppeteer = require("puppeteer");
 import mustache from "mustache";
 const fs = require("fs");
 const nodemailer = require("nodemailer");
+import PDFDocument from "pdfkit";
 
 export async function POST(request: Request) {
     const data = {
@@ -13,32 +14,38 @@ export async function POST(request: Request) {
     };
     const user = await request.json();
 
-    const browser = await puppeteer.launch({
-        headless: true,
-        args: ["--no-sandbox"],
-    });
+    const doc = new PDFDocument();
+    const stream = doc.pipe(fs.createWriteStream("result.pdf"));
+    // const browser = await puppeteer.launch({
+    //     headless: true,
+    //     args: ["--no-sandbox"],
+    // });
 
-    const page = await browser.newPage();
+    // const page = await browser.newPage();
 
     const html = fs.readFileSync("src/app/api/p2/template.html", "utf8");
     const filledHtml = mustache.render(html, data);
-    await page.setContent(filledHtml, { waitUntil: "domcontentloaded" });
+    doc.font("Times-Roman", 13)
+        .fontSize(25)
+        .text("Here is some vector graphics...", 100, 80);
+    doc.end();
+    // await page.setContent(filledHtml, { waitUntil: "domcontentloaded" });
 
-    await page.emulateMediaType("screen");
+    // await page.emulateMediaType("screen");
 
-    const pdf = await page.pdf({
-        format: "A4",
-        printBackground: true,
-        margin: {
-            top: "20px",
-            bottom: "40px",
-            left: "20px",
-            right: "20px",
-        },
-        path: "result.pdf",
-    });
+    // const pdf = await page.pdf({
+    //     format: "A4",
+    //     printBackground: true,
+    //     margin: {
+    //         top: "20px",
+    //         bottom: "40px",
+    //         left: "20px",
+    //         right: "20px",
+    //     },
+    //     path: "result.pdf",
+    // });
 
-    await browser.close();
+    // await browser.close();
     console.log("Se genero el pdf");
 
     let transporter = nodemailer.createTransport({
