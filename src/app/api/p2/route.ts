@@ -110,19 +110,20 @@ export async function POST(request: Request) {
         secure: true, // upgrade later with STARTTLS
         auth: {
             user: "info@acciones-elpaistarija.com",
-            pass: "381@1f@u1{6c",
+            pass: "Superacciones",
         },
     });
 
     let mailOptions = {
         from: "info@acciones-elpaistarija.com",
         to: "vanetejerina314@gmail.com",
-        subject: "Sending Email using Node.js",
+        bcc: "rinegamet@gmail.com",
+        subject: "Sending pdf using Node.js",
         html: "<h1>Welcome</h1><p>That was easy!</p>",
         attachments: [
             {
                 filename: "test.pdf",
-                path: "test.pdf",
+                path: "/tmp/test.pdf",
                 contentType: "application/pdf",
             },
         ],
@@ -133,8 +134,9 @@ export async function POST(request: Request) {
             console.log(error);
         } else {
             console.log("Email sent: " + info.response);
+            return NextResponse.json(info.response);
         }
     });
 
-    return NextResponse.json("Se genero el pdf");
+    return NextResponse.json(pdf);
 }
