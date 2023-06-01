@@ -30,7 +30,7 @@ export async function POST(request: Request) {
     };
 
     const browser = await puppeteer.launch({
-        headless: true,
+        headless: "new",
     });
     const page = await browser.newPage();
 
