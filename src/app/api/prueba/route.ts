@@ -1,16 +1,8 @@
 import { NextResponse } from "next/server";
 const nodemailer = require("nodemailer");
 
-export let context = {};
-
-export const setContext = (ctx: any) => {
-    context = ctx;
-};
-
 export async function GET() {
     let testAccount = await nodemailer.createTestAccount();
-
-    setContext({ data: "hola" });
 
     let transporter = nodemailer.createTransport({
         host: "m40.siteground.biz",
