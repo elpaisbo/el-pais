@@ -161,8 +161,8 @@ function createInput(payment: any) {
     const date = new Date(Date.now());
     const inputs = [
         {
-            nombre: `${payment.nombre} ${payment.apellido}`,
             cantidad: payment.acciones.toString(),
+            nombre: `${payment.nombre} ${payment.apellido}`,
             precio: (100 * payment.acciones).toString(),
             fecha: date.toLocaleDateString(),
             id: payment.idcompra,
