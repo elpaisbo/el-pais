@@ -5,14 +5,16 @@ import Link from "next/link";
 type BannerProps = {
     img: StaticImageData;
     alt: string;
+    width?: number;
+    height?: number;
     to: string;
 };
 
-function Banner({ img, alt, to }: BannerProps) {
+function Banner({ img, alt, to, width, height }: BannerProps) {
     return (
         <div>
             <Link href={to}>
-                <Image src={img} alt={alt} />
+                <Image src={img} alt={alt} width={width} height={height} />
             </Link>
         </div>
     );

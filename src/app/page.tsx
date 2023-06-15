@@ -61,6 +61,8 @@ export default function Home() {
                     alt={banner.alt}
                     img={banner.img}
                     to={banner.to}
+                    width={banner.width}
+                    height={banner.height}
                 />
             ))}
             <p className="text-center">En base a los EEFF al 31/12/2022</p>

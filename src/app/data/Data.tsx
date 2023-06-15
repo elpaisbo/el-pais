@@ -1,5 +1,6 @@
 import Banner1 from "../../../public/images/banners/banner1.jpg";
 import Banner2 from "../../../public/images/banners/banner2.jpg";
+import Banner4 from "../../../public/images/banners/banner4.jpg";
 // import Obsesiones from "../../../public/documents/obsesiones.pdf";
 
 export const bannersInicio = [
@@ -8,12 +9,24 @@ export const bannersInicio = [
         img: Banner1,
         alt: "Banner precio acciones",
         to: "#form",
+        width: 1500,
+        height: 800,
     },
     {
         id: 2,
+        img: Banner4,
+        alt: "Banner rentabilidad",
+        to: "#form",
+        width: 1500,
+        height: 400,
+    },
+    {
+        id: 3,
         img: Banner2,
         alt: "Banner rentabilidad",
         to: "/actividades",
+        width: 500,
+        height: 800,
     },
 ];
 
@@ -29,6 +42,10 @@ export const navLinks = [
     {
         text: "Actividades de la Empresa",
         to: "/actividades",
+    },
+    {
+        text: "Periódico El País",
+        to: "https://elpais.bo/",
     },
 ];
 

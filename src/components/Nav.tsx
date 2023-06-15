@@ -19,7 +19,7 @@ export default function Nav({ setNavMenu }: NavProps) {
     return (
         <nav className="flex sticky top-0 bg-white-transparent justify-between py-5 items-center gap-4 px-6 sm:px-16 md:px-20 lg:px-30 shadow-md z-10">
             <div>
-                <Link href={"https://elpais.bo/"}>
+                <Link href={"/"}>
                     <Image
                         src={Logo}
                         alt="Logo El País"
@@ -29,7 +29,7 @@ export default function Nav({ setNavMenu }: NavProps) {
                 </Link>
             </div>
             <div className="flex items-center gap-4">
-                <div className=" hidden lg:flex items-center gap-2 ">
+                <div className="hidden lg:flex items-center gap-2">
                     {navLinks.map((link) => (
                         <NavLink key={link.to} text={link.text} to={link.to} />
                     ))}
