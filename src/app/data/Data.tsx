@@ -15,7 +15,7 @@ export const bannersInicio = [
     {
         id: 2,
         img: Banner4,
-        alt: "Banner rentabilidad",
+        alt: "Banner monedas",
         to: "#form",
         width: 1500,
         height: 400,
