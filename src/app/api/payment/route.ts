@@ -104,7 +104,7 @@ export async function GET(request: NextRequest) {
     fs.writeFileSync("/tmp/test.pdf", pdf);
 
     let transporter = nodemailer.createTransport({
-        host: "m40.siteground.biz",
+        host: "gcam1276.siteground.biz",
         port: 465,
         secure: true, // upgrade later with STARTTLS
         auth: {
