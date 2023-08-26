@@ -153,6 +153,16 @@ async function createNewRegistro(payment: any) {
                 idDeuda: payment.idDeuda,
             },
         }),
+        prismaClient.acciones.update({
+            where: {
+                id: 1,
+            },
+            data: {
+                cantidad: {
+                    decrement: payment.acciones,
+                },
+            },
+        }),
     ]);
 
     return newRegistro;
