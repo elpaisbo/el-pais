@@ -153,7 +153,32 @@ export const pdfData = [
     },
     {
         id: 5,
-        text: "EEFF 31/12/2022",
-        to: "https://drive.google.com/file/d/1hiaoM_zqlbTDqXjU_2McXx7Ab_fkvj2S/view?usp=share_link",
+        text: "EEFF 2023",
+        to: "https://drive.google.com/file/d/1mW-_yK2FqSFlRerVdcIFMfejoFAiIPNj/view?usp=drive_link",
     },
+    {
+        id: 6,
+        text: "Informe de Sindicatura",
+        to: "https://drive.google.com/file/d/1qtrag301fLlHW8H2Zl-Yllbccg5lChzf/view?usp=drive_link"
+    },
+    {
+        id: 7,
+        text: "Informe del Directorio",
+        to: "https://drive.google.com/file/d/171F-Wppuxhyqsu2_qJLrfNKiGU4b1eMw/view?usp=drive_link"
+    },
+    {
+        id: 8,
+        text: "Informe de Auditoría",
+        to: "https://drive.google.com/file/d/1WJ3Gf9v1Z1jX5Tl1Z5k7s6aWJ8K9l3oG/view?usp=drive_link"
+    },
+    {
+        id: 9,
+        text: "Junta ordinaria de accionistas",
+        to: "https://drive.google.com/file/d/1AM1B7PSzT5XE26410d5oqCScCtrBR48B/view?usp=drive_link"
+    },
+    {
+        id: 10,
+        text: "Memoria anual",
+        to: "https://drive.google.com/file/d/1OBjxPr46Lkzt8ioxVj3C8T7sSQa9YLRS/view?usp=drive_link"
+    }
 ];

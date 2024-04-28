@@ -9,7 +9,7 @@ function InfoPdf() {
             <h2 className="font-bold justify-self-center">
                 PDFs con Información
             </h2>
-            <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+            <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 auto-rows-[4.5rem]">
                 {pdfData.map((pdf) => (
                     <ButtonLink href={pdf.to} text={pdf.text} key={pdf.id} />
                 ))}
