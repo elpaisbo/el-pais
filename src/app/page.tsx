@@ -11,7 +11,7 @@ import Link from "next/link";
 import Button from "../components/Button";
 
 export default function Home() {
-    function handleClick() {}
+    function handleClick() { }
 
     return (
         <main className="flex min-h-screen flex-col items-center gap-6 py-4 px-6 sm:px-16 md:px-20 lg:px-30">
@@ -65,7 +65,7 @@ export default function Home() {
                     height={banner.height}
                 />
             ))}
-            <p className="text-center">En base a los EEFF al 31/12/2022</p>
+            <p className="text-center">De acuerdo a los EEFF al 31/12/2023</p>
             <Image
                 src={DocumentIcon}
                 alt="Icono accion"

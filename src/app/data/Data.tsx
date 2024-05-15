@@ -1,28 +1,19 @@
-import Banner1 from "../../../public/images/banners/banner1.jpg";
-import Banner2 from "../../../public/images/banners/banner2.jpg";
-import Banner4 from "../../../public/images/banners/banner4.jpg";
+import Banner5 from "../../../public/images/banners/banner5.jpg";
+import Banner6 from "../../../public/images/banners/banner6.jpg";
 // import Obsesiones from "../../../public/documents/obsesiones.pdf";
 
 export const bannersInicio = [
     {
         id: 1,
-        img: Banner1,
+        img: Banner5,
         alt: "Banner precio acciones",
         to: "#form",
-        width: 1500,
+        width: 1700,
         height: 800,
     },
     {
         id: 2,
-        img: Banner4,
-        alt: "Banner monedas",
-        to: "#form",
-        width: 1500,
-        height: 400,
-    },
-    {
-        id: 3,
-        img: Banner2,
+        img: Banner6,
         alt: "Banner rentabilidad",
         to: "/actividades",
         width: 500,
@@ -134,51 +125,81 @@ export const pdfData = [
     {
         id: 1,
         text: "Las Obsesiones de El País",
-        to: "https://drive.google.com/file/d/1uG_2qJYxEIS-ACidg3zn-w7h0ljJkQtd/view?usp=share_link",
+        to: "https://drive.google.com/file/d/1bOeAzrBdUsPeJR8Hoif2--oLFZnvdzA1/view?usp=sharing",
     },
     {
         id: 2,
-        text: "Estatutos El País",
-        to: "https://drive.google.com/file/d/1c_viqs9p42m3Sxv69ksP0renMtRi8HsK/view?usp=share_link",
+        text: "Folleto de Acciones Zona Creativa El Pais S.A.",
+        to: "https://drive.google.com/file/d/1j4aIAYeLnJelTmyJXepvXNXEOhT2sIEZ/view?usp=sharing",
     },
     {
         id: 3,
-        text: "Conformación Sociedad Anónima",
-        to: "https://drive.google.com/file/d/1cHqbA2X1V0OQg_uSUohGM5sLW-vyYTnY/view?usp=sharing",
+        text: "Testimonio de Conformación ZCEP S.A.",
+        to: "https://drive.google.com/file/d/12xqQ6mwa0kUw3M2ZWXPuojKYvehQ9zBo/view?usp=sharing",
     },
     {
         id: 4,
-        text: "Folleto Venta de Acciones",
-        to: "https://drive.google.com/file/d/1U1X8ODIKYC3z5NVgboUqnnEHdTStLJJI/view?usp=sharing",
+        text: "Estatutos Zona Creativa El País S.A.",
+        to: "https://drive.google.com/file/d/1dKEbnS4j6A6-00jP_PbJ4Bh42vzGohGr/view?usp=sharing",
     },
     {
         id: 5,
-        text: "EEFF 2023",
-        to: "https://drive.google.com/file/d/1mW-_yK2FqSFlRerVdcIFMfejoFAiIPNj/view?usp=drive_link",
+        text: "Acta de Junta Ordinaria de Accionistas sobre la gestión 2022",
+        to: "https://drive.google.com/file/d/17mcdzROi871WtRk1QgW7KgW5wdjbC6d9/view?usp=sharing",
     },
     {
         id: 6,
-        text: "Informe de Sindicatura",
-        to: "https://drive.google.com/file/d/1qtrag301fLlHW8H2Zl-Yllbccg5lChzf/view?usp=drive_link"
+        text: "Informe de Auditoría 2022",
+        to: "https://drive.google.com/file/d/1izGrd9A_mfS23G0QRYM-1PjX4nEphawG/view?usp=sharing"
     },
     {
         id: 7,
-        text: "Informe del Directorio",
-        to: "https://drive.google.com/file/d/171F-Wppuxhyqsu2_qJLrfNKiGU4b1eMw/view?usp=drive_link"
+        text: "Informe de Sindicatura 2022",
+        to: "https://drive.google.com/file/d/1uqTyAtirMGk_Lm2Y2GxeHf8a3nksmhcs/view?usp=sharing"
     },
     {
         id: 8,
-        text: "Informe de Auditoría",
-        to: "https://drive.google.com/file/d/1WJ3Gf9v1Z1jX5Tl1Z5k7s6aWJ8K9l3oG/view?usp=drive_link"
+        text: "Informe de Directorio 2022",
+        to: "https://drive.google.com/file/d/11M-zbTNH9G_SMwbru3_XWUoh8oW0v8Z4/view?usp=sharing"
     },
     {
         id: 9,
-        text: "Junta ordinaria de accionistas",
-        to: "https://drive.google.com/file/d/1AM1B7PSzT5XE26410d5oqCScCtrBR48B/view?usp=drive_link"
+        text: "EEFF 2022",
+        to: "https://drive.google.com/file/d/1Z3eqBCpWJ3E4nEjjMIp5VYfGqbpacuvL/view?usp=sharing"
     },
     {
         id: 10,
-        text: "Memoria anual",
-        to: "https://drive.google.com/file/d/1OBjxPr46Lkzt8ioxVj3C8T7sSQa9YLRS/view?usp=drive_link"
+        text: "Memoria Anual 2022",
+        to: "https://drive.google.com/file/d/1C1Y0uPoa12wwXFCRKq2hJSqKyE-TjRil/view?usp=sharing"
+    },
+    {
+        id: 11,
+        text: "Acta de Junta Ordinaria de Accionistas sobre la gestión 2023",
+        to: "https://drive.google.com/file/d/1KjT_I4tsoMsTkZZkWc7EOW7L4Ww4AulA/view?usp=sharing",
+    },
+    {
+        id: 12,
+        text: "Informe de Auditoría 2023",
+        to: "https://drive.google.com/file/d/1VKoejnlVc-PtE-9VTtdebAqQ9xoQUPSQ/view?usp=sharing"
+    },
+    {
+        id: 13,
+        text: "Informe de Sindicatura 2023",
+        to: "https://drive.google.com/file/d/1PJmi_oYVHMB27E3AcjqZOblFP64sAswR/view?usp=sharing"
+    },
+    {
+        id: 14,
+        text: "Informe de Directorio 2023",
+        to: "https://drive.google.com/file/d/1t5uslASo8kooQ62AmyJMfFk7cNHA9Qjw/view?usp=sharing"
+    },
+    {
+        id: 15,
+        text: "EEFF 2023",
+        to: "https://drive.google.com/file/d/1xNtcw-jvYS3OrxQ0EhQ8eJDvotvRGuZN/view?usp=sharing"
+    },
+    {
+        id: 16,
+        text: "Memoria anual 2023",
+        to: "https://drive.google.com/file/d/1zwaJFqpGAXv3tdtzaOBI6pmeljRKcNZS/view?usp=sharing"
     }
 ];

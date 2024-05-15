@@ -7,9 +7,11 @@ type ButtonLinkProps = {
 
 function ButtonLink({ text, href }: ButtonLinkProps) {
     return (
-        <button className="p-3 rounded-md text-white bg-red-500">
-            <Link href={href}>{text}</Link>
-        </button>
+        <Link className="p-3 rounded-md text-white bg-red-500 grid place-items-center" href={href}>
+            <button >
+                {text}
+            </button>
+        </Link>
     );
 }
 

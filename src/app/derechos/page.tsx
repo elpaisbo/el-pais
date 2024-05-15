@@ -55,16 +55,10 @@ function Derechos() {
                 </div>
             </div>
             <div className="flex flex-col">
-                <h2 className="text-xl self-center">Informaicion disponible</h2>
+                <h2 className="text-xl self-center">Información disponible</h2>
                 <div className="flex gap-4 flex-col items-center lg:flex-row">
                     <p className="text-justify">
-                        Se entregará información relevante a los accionistas en
-                        las Juntas Ordinarias y Juntas Extraordinarias de
-                        Accionistas. Toda la información vinculada al
-                        desenvolvimiento de la Sociedad estará disponible para
-                        los accionistas, sin limitación alguna, en nuestra
-                        Página Web de Accionistas, activa de manera permanente
-                        para los accionistas.
+                        Se entregará información relevante a los accionistas en las Juntas Ordinarias y Extraordinarias. Toda información vinculada al desenvolvimiento de la Sociedad estará disponible para los accionistas, sin limitación alguna, de manera permanente en nuestra página web de accionistas.
                     </p>
                     <Image
                         src={DerechosIcon}
@@ -113,7 +107,7 @@ function Derechos() {
             </div>
             <div className="flex flex-col gap-2 sm:gap-4">
                 <h2 className="text-xl underline underline-offset-1">
-                    Distribuición de los Dividendos
+                    Distribución de los Dividendos
                 </h2>
                 <ul className="list-inside list-disc grid grid-rows-2 lg:grid-rows-1 lg:grid-cols-2 gap-4">
                     <li className="border-4 border-pink-500 p-2">
