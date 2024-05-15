@@ -1,12 +1,21 @@
-import Banner5 from "../../../public/images/banners/banner5.jpg";
+import Banner7 from "../../../public/images/banners/banner7.jpg";
+import Banner8 from "../../../public/images/banners/banner8.jpg";
 import Banner6 from "../../../public/images/banners/banner6.jpg";
 // import Obsesiones from "../../../public/documents/obsesiones.pdf";
 
 export const bannersInicio = [
     {
         id: 1,
-        img: Banner5,
+        img: Banner7,
         alt: "Banner precio acciones",
+        to: "#form",
+        width: 1700,
+        height: 800,
+    },
+    {
+        id: 2,
+        img: Banner8,
+        alt: "Banner Monedas",
         to: "#form",
         width: 1700,
         height: 800,
