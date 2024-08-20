@@ -174,7 +174,7 @@ function createInput(payment: any) {
         {
             nombre: `${payment.nombre} ${payment.apellido}`,
             cantidad: payment.acciones.toString(),
-            precio: (1 * payment.acciones).toString(),
+            precio: (100 * payment.acciones).toString(),
             fecha: date.toLocaleDateString(),
             id: payment.idcompra,
         },
