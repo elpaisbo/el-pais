@@ -36,7 +36,7 @@ export async function POST(request: Request) {
             {
                 cantidad: acciones,
                 concepto: "Acciones El Pais",
-                costo_unitario: 1,
+                costo_unitario: 100,
             },
         ],
         lineas_metadatos: [
