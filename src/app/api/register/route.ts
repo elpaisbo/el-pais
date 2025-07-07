@@ -4,7 +4,7 @@ import axios from "axios";
 
 const prismaClient = new PrismaClient();
 const LibelulaURL =
-    process.env.LIB_URL || "https://api.todotix.com/rest/deuda/registrar";
+    process.env.LIB_URL || "https://api.libelula.bo/rest/deuda/registrar";
 
 type Req = {
     data: {
@@ -36,7 +36,7 @@ export async function POST(request: Request) {
             {
                 cantidad: acciones,
                 concepto: "Acciones El Pais",
-                costo_unitario: 100,
+                costo_unitario: 1,
             },
         ],
         lineas_metadatos: [

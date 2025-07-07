@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { generate } from "@pdfme/generator";
-import { Template } from "@pdfme/common";
+import { BLANK_PDF, Template } from "@pdfme/common";
+import { text } from "@pdfme/schemas";
 const fs = require("fs");
 const nodemailer = require("nodemailer");
 import { Deuda, PrismaClient } from "@prisma/client";
@@ -20,23 +21,9 @@ export async function GET(request: NextRequest) {
         })) || undefined;
 
     const template: Template = {
+        basePdf: pdfTemplate,
         schemas: [
             [
-                {
-                    name: "cantidad",
-                    type: "text",
-                    position: {
-                        x: 79.11,
-                        y: 58.6,
-                    },
-                    width: 6.68,
-                    height: 11.48,
-                    alignment: "center",
-                    fontSize: 6,
-                    characterSpacing: 0,
-                    lineHeight: 1,
-                    // fontName: "Roboto",
-                },
                 {
                     name: "nombre",
                     type: "text",
@@ -52,6 +39,21 @@ export async function GET(request: NextRequest) {
                     lineHeight: 1,
                     // fontName: "Roboto",
                     fontColor: "#fa0000",
+                },
+                {
+                    name: "cantidad",
+                    type: "text",
+                    position: {
+                        x: 79.11,
+                        y: 58.6,
+                    },
+                    width: 6.68,
+                    height: 11.48,
+                    alignment: "center",
+                    fontSize: 6,
+                    characterSpacing: 0,
+                    lineHeight: 1,
+                    // fontName: "Roboto",
                 },
                 {
                     name: "precio",
@@ -100,12 +102,11 @@ export async function GET(request: NextRequest) {
                 },
             ],
         ],
-        basePdf: pdfTemplate,
     };
 
     const inputs = createInput(payment);
 
-    const pdf = await generate({ template, inputs });
+    const pdf = await generate({ template, inputs, plugins: { text } });
 
     fs.writeFileSync("/tmp/test.pdf", pdf);
 
@@ -174,7 +175,7 @@ async function createNewRegistro(payment: any) {
     return newRegistro;
 }
 
-function createInput(payment: any) {
+function createInput(payment: any): Record<string, any>[] {
     const date = new Date(Date.now());
     const inputs = [
         {
