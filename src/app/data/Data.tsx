@@ -210,5 +210,35 @@ export const pdfData = [
         id: 16,
         text: "Memoria anual 2023",
         to: "https://drive.google.com/file/d/1zwaJFqpGAXv3tdtzaOBI6pmeljRKcNZS/view?usp=sharing"
+    },
+    {
+        id: 17,
+        text: "Acta de Junta Ordinaria de Accionistas sobre la gestión 2024",
+        to: "https://drive.google.com/file/d/16VFrmq0OVmDOy9KV_OjyuRDNPk3f71yY/view?usp=sharing",
+    },
+    {
+        id: 18,
+        text: "Informe de Auditoría 2024",
+        to: "https://drive.google.com/file/d/1cp-aED2Hy2mqV0yIWbgzfGWZlTY9yaRW/view?usp=sharing"
+    },
+    {
+        id: 19,
+        text: "Informe de Sindicatura 2024",
+        to: "https://drive.google.com/file/d/1atZ2xlWhkUXFz67ms7JgVelRx2krFm35/view?usp=sharing"
+    },
+    {
+        id: 20,
+        text: "Informe de Directorio 2024",
+        to: "https://drive.google.com/file/d/1oPzCFn8x4qQn3QLNPY-gLi6qYDS34G7m/view?usp=sharing"
+    },
+    {
+        id: 21,
+        text: "EEFF 2024",
+        to: "https://drive.google.com/file/d/1NZMfi1R4o6OwRO1HuMEEcMc22-Lpuub0/view?usp=sharing"
+    },
+    {
+        id: 22,
+        text: "Memoria anual 2024",
+        to: "https://drive.google.com/file/d/1DW3dy7jeaamH8BDms16-KSkElQEH1kQY/view?usp=sharing"
     }
 ];
