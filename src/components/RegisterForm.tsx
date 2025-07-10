@@ -59,6 +59,8 @@ function RegisterForm() {
                     id={input.id}
                     label={input.label}
                     validations={input.validations}
+                    type={input.type}
+                    options={input.options}
                 />
             ))}
         </motion.form>,
