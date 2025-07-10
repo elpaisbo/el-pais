@@ -121,7 +121,7 @@ export const formInputs = [
                 { value: 11, label: "Noviembre" },
                 { value: 12, label: "Diciembre" }
             ],
-            getDiasValidosPorMes: (mes, año) => {
+            getDiasValidosPorMes: (mes: number, año: number) => {
                 if (!mes || !año) return 31;
                 
                 const diasPorMes = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
