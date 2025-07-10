@@ -65,7 +65,7 @@ export default function Home() {
                     height={banner.height}
                 />
             ))}
-            <p className="text-center">De acuerdo a los EEFF al 31/12/2023</p>
+            <p className="text-center">De acuerdo a los EEFF al 31/12/2024</p>
             <Image
                 src={DocumentIcon}
                 alt="Icono accion"
