@@ -1,0 +1,88 @@
+import React from 'react';
+import { useFormContext } from 'react-hook-form';
+
+interface BirthdateInputProps {
+    id: string;
+    label: string;
+    validations: any;
+    options: any;
+}
+
+const BirthdateInput: React.FC<BirthdateInputProps> = ({ id, label, validations, options }) => {
+    const { register, watch, setValue, formState: { errors } } = useFormContext();
+    
+    const watchedValue = watch(id) || {};
+    
+    const handleChange = (tipo: string, nuevoValor: string) => {
+        const nuevaFecha = {
+            ...watchedValue,
+            [tipo]: nuevoValor
+        };
+        
+        if (tipo === 'mes' || tipo === 'año') {
+            const diasValidos = options.getDiasValidosPorMes(
+                tipo === 'mes' ? parseInt(nuevoValor) : parseInt(watchedValue.mes),
+                tipo === 'año' ? parseInt(nuevoValor) : parseInt(watchedValue.año)
+            );
+            
+            if (watchedValue.dia && parseInt(watchedValue.dia) > diasValidos) {
+                nuevaFecha.dia = diasValidos.toString();
+            }
+        }
+        
+        setValue(id, nuevaFecha);
+    };
+
+    const diasDisponibles = options.getDiasValidosPorMes(
+        watchedValue.mes ? parseInt(watchedValue.mes) : null,
+        watchedValue.año ? parseInt(watchedValue.año) : null
+    );
+
+    const añoActual = new Date().getFullYear();
+    const años = Array.from({ length: añoActual - 1900 + 1 }, (_, i) => añoActual - i);
+
+    return (
+        <div className="flex flex-col space-y-2">
+            <label className="text-sm font-medium text-gray-700">{label}</label>
+            <div className="flex space-x-2">
+                <select
+                    className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                    value={watchedValue.dia || ''}
+                    onChange={(e) => handleChange('dia', e.target.value)}
+                >
+                    <option value="">Día</option>
+                    {Array.from({ length: diasDisponibles }, (_, i) => i + 1).map(dia => (
+                        <option key={dia} value={dia}>{dia}</option>
+                    ))}
+                </select>
+                
+                <select
+                    className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                    value={watchedValue.mes || ''}
+                    onChange={(e) => handleChange('mes', e.target.value)}
+                >
+                    <option value="">Mes</option>
+                    {options.meses.map(mes => (
+                        <option key={mes.value} value={mes.value}>{mes.label}</option>
+                    ))}
+                </select>
+                
+                <select
+                    className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                    value={watchedValue.año || ''}
+                    onChange={(e) => handleChange('año', e.target.value)}
+                >
+                    <option value="">Año</option>
+                    {años.map(año => (
+                        <option key={año} value={año}>{año}</option>
+                    ))}
+                </select>
+            </div>
+            {errors[id] && (
+                <span className="text-red-500 text-sm">{errors[id].message}</span>
+            )}
+        </div>
+    );
+};
+
+export default BirthdateInput;
