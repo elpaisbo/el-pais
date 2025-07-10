@@ -79,7 +79,7 @@ export const formInputs = [
         validations: {
             required: "La fecha de nacimiento es requerida",
             validate: {
-                validDate: (value) => {
+                validDate: (value: any) => {
                     if (!value || !value.dia || !value.mes || !value.año) {
                         return "Debe seleccionar día, mes y año";
                     }
