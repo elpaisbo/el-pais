@@ -153,91 +153,61 @@ export const pdfData = [
     },
     {
         id: 5,
-        text: "Acta de Junta Ordinaria de Accionistas sobre la gestión 2022",
-        to: "https://drive.google.com/file/d/17mcdzROi871WtRk1QgW7KgW5wdjbC6d9/view?usp=sharing",
-    },
-    {
-        id: 6,
-        text: "Informe de Auditoría 2022",
-        to: "https://drive.google.com/file/d/1izGrd9A_mfS23G0QRYM-1PjX4nEphawG/view?usp=sharing"
-    },
-    {
-        id: 7,
-        text: "Informe de Sindicatura 2022",
-        to: "https://drive.google.com/file/d/1uqTyAtirMGk_Lm2Y2GxeHf8a3nksmhcs/view?usp=sharing"
-    },
-    {
-        id: 8,
-        text: "Informe de Directorio 2022",
-        to: "https://drive.google.com/file/d/11M-zbTNH9G_SMwbru3_XWUoh8oW0v8Z4/view?usp=sharing"
-    },
-    {
-        id: 9,
-        text: "EEFF 2022",
-        to: "https://drive.google.com/file/d/1Z3eqBCpWJ3E4nEjjMIp5VYfGqbpacuvL/view?usp=sharing"
-    },
-    {
-        id: 10,
-        text: "Memoria Anual 2022",
-        to: "https://drive.google.com/file/d/1C1Y0uPoa12wwXFCRKq2hJSqKyE-TjRil/view?usp=sharing"
-    },
-    {
-        id: 11,
         text: "Acta de Junta Ordinaria de Accionistas sobre la gestión 2023",
         to: "https://drive.google.com/file/d/1KjT_I4tsoMsTkZZkWc7EOW7L4Ww4AulA/view?usp=sharing",
     },
     {
-        id: 12,
+        id: 6,
         text: "Informe de Auditoría 2023",
         to: "https://drive.google.com/file/d/1VKoejnlVc-PtE-9VTtdebAqQ9xoQUPSQ/view?usp=sharing"
     },
     {
-        id: 13,
+        id: 7,
         text: "Informe de Sindicatura 2023",
         to: "https://drive.google.com/file/d/1PJmi_oYVHMB27E3AcjqZOblFP64sAswR/view?usp=sharing"
     },
     {
-        id: 14,
+        id: 8,
         text: "Informe de Directorio 2023",
         to: "https://drive.google.com/file/d/1t5uslASo8kooQ62AmyJMfFk7cNHA9Qjw/view?usp=sharing"
     },
     {
-        id: 15,
+        id: 9,
         text: "EEFF 2023",
         to: "https://drive.google.com/file/d/1xNtcw-jvYS3OrxQ0EhQ8eJDvotvRGuZN/view?usp=sharing"
     },
     {
-        id: 16,
+        id: 10,
         text: "Memoria anual 2023",
         to: "https://drive.google.com/file/d/1zwaJFqpGAXv3tdtzaOBI6pmeljRKcNZS/view?usp=sharing"
     },
     {
-        id: 17,
+        id: 11,
         text: "Acta de Junta Ordinaria de Accionistas sobre la gestión 2024",
         to: "https://drive.google.com/file/d/16VFrmq0OVmDOy9KV_OjyuRDNPk3f71yY/view?usp=sharing",
     },
     {
-        id: 18,
+        id: 12,
         text: "Informe de Auditoría 2024",
         to: "https://drive.google.com/file/d/1cp-aED2Hy2mqV0yIWbgzfGWZlTY9yaRW/view?usp=sharing"
     },
     {
-        id: 19,
+        id: 13,
         text: "Informe de Sindicatura 2024",
         to: "https://drive.google.com/file/d/1atZ2xlWhkUXFz67ms7JgVelRx2krFm35/view?usp=sharing"
     },
     {
-        id: 20,
+        id: 14,
         text: "Informe de Directorio 2024",
         to: "https://drive.google.com/file/d/1oPzCFn8x4qQn3QLNPY-gLi6qYDS34G7m/view?usp=sharing"
     },
     {
-        id: 21,
+        id: 15,
         text: "EEFF 2024",
         to: "https://drive.google.com/file/d/1NZMfi1R4o6OwRO1HuMEEcMc22-Lpuub0/view?usp=sharing"
     },
     {
-        id: 22,
+        id: 16,
         text: "Memoria anual 2024",
         to: "https://drive.google.com/file/d/1DW3dy7jeaamH8BDms16-KSkElQEH1kQY/view?usp=sharing"
     }
