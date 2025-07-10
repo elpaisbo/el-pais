@@ -73,6 +73,70 @@ export const formInputs = [
         },
     },
     {
+        id: "fechaNacimiento",
+        label: "Fecha de Nacimiento",
+        type: "birthdate",
+        validations: {
+            required: "La fecha de nacimiento es requerida",
+            validate: {
+                validDate: (value) => {
+                    if (!value || !value.dia || !value.mes || !value.año) {
+                        return "Debe seleccionar día, mes y año";
+                    }
+                    
+                    const dia = parseInt(value.dia);
+                    const mes = parseInt(value.mes);
+                    const año = parseInt(value.año);
+                    
+                    // Verificar que la fecha sea válida
+                    const fecha = new Date(año, mes - 1, dia);
+                    if (fecha.getFullYear() !== año || 
+                        fecha.getMonth() !== mes - 1 || 
+                        fecha.getDate() !== dia) {
+                        return "La fecha seleccionada no es válida";
+                    }
+                    
+                    // Verificar que no sea una fecha futura
+                    const hoy = new Date();
+                    if (fecha > hoy) {
+                        return "La fecha de nacimiento no puede ser futura";
+                    }
+                    
+                    return true;
+                }
+            }
+        },
+        options: {
+            meses: [
+                { value: 1, label: "Enero" },
+                { value: 2, label: "Febrero" },
+                { value: 3, label: "Marzo" },
+                { value: 4, label: "Abril" },
+                { value: 5, label: "Mayo" },
+                { value: 6, label: "Junio" },
+                { value: 7, label: "Julio" },
+                { value: 8, label: "Agosto" },
+                { value: 9, label: "Septiembre" },
+                { value: 10, label: "Octubre" },
+                { value: 11, label: "Noviembre" },
+                { value: 12, label: "Diciembre" }
+            ],
+            getDiasValidosPorMes: (mes, año) => {
+                if (!mes || !año) return 31;
+                
+                const diasPorMes = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+                
+                // Verificar año bisiesto para febrero
+                if (mes === 2) {
+                    const esBisiesto = (año % 4 === 0 && año % 100 !== 0) || (año % 400 === 0);
+                    return esBisiesto ? 29 : 28;
+                }
+                
+                return diasPorMes[mes - 1];
+            }
+        }
+    },
+    {
         id: "email",
         label: "Email",
         validations: {
