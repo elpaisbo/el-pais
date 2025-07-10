@@ -1,5 +1,6 @@
 import React from 'react';
 import { useFormContext } from 'react-hook-form';
+import ErrorMessage from './ErrorMessage';
 
 interface BirthdateInputProps {
     id: string;
@@ -41,12 +42,16 @@ const BirthdateInput: React.FC<BirthdateInputProps> = ({ id, label, validations,
     const añoActual = new Date().getFullYear();
     const años = Array.from({ length: añoActual - 1900 + 1 }, (_, i) => añoActual - i);
 
+    React.useEffect(() => {
+        register(id, validations);
+    }, [id, register, validations]);
+
     return (
-        <div className="flex flex-col space-y-2">
-            <label className="text-sm font-medium text-gray-700">{label}</label>
-            <div className="flex space-x-2">
+        <div className="flex flex-col gap-2">
+            <label htmlFor={id}>{label}</label>
+            <div className="flex gap-2">
                 <select
-                    className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="border border-black rounded-sm p-1 outline-1 flex-1"
                     value={watchedValue.dia || ''}
                     onChange={(e) => handleChange('dia', e.target.value)}
                 >
@@ -57,7 +62,7 @@ const BirthdateInput: React.FC<BirthdateInputProps> = ({ id, label, validations,
                 </select>
                 
                 <select
-                    className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="border border-black rounded-sm p-1 outline-1 flex-1"
                     value={watchedValue.mes || ''}
                     onChange={(e) => handleChange('mes', e.target.value)}
                 >
@@ -68,7 +73,7 @@ const BirthdateInput: React.FC<BirthdateInputProps> = ({ id, label, validations,
                 </select>
                 
                 <select
-                    className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="border border-black rounded-sm p-1 outline-1 flex-1"
                     value={watchedValue.año || ''}
                     onChange={(e) => handleChange('año', e.target.value)}
                 >
@@ -78,9 +83,7 @@ const BirthdateInput: React.FC<BirthdateInputProps> = ({ id, label, validations,
                     ))}
                 </select>
             </div>
-            {errors[id] && (
-                <span className="text-red-500 text-sm">{errors[id].message}</span>
-            )}
+            <ErrorMessage errors={errors[id]} />
         </div>
     );
 };
