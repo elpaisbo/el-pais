@@ -67,7 +67,7 @@ const BirthdateInput: React.FC<BirthdateInputProps> = ({ id, label, validations,
                     onChange={(e) => handleChange('mes', e.target.value)}
                 >
                     <option value="">Mes</option>
-                    {options.meses.map(mes => (
+                    {options.meses.map((mes: any) => (
                         <option key={mes.value} value={mes.value}>{mes.label}</option>
                     ))}
                 </select>
