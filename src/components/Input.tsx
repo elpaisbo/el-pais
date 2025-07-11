@@ -1,7 +1,7 @@
 "use client";
 import { useFormContext } from "react-hook-form";
 import ErrorMessage from "./ErrorMessage";
-import BirthdateInput from "./BirthdateInput.tsx";
+import BirthdateInput from "./BirthdateInput";
 
 type InputProps = {
     type?: string;
