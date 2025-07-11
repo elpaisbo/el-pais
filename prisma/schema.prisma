@@ -26,7 +26,7 @@ model Registro {
   telefono     String
   ci           String
   apellido     String
-  fecha_nacimiento Date
+  fecha_nacimiento DateTime
 }
 
 model Deuda {
@@ -42,5 +42,5 @@ model Deuda {
   adquisicion  DateTime @default(now())
   telefono     String
   ci           String
-  fecha_nacimiento Date
+  fecha_nacimiento DateTime
 }
