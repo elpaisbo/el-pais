@@ -12,6 +12,7 @@ CREATE TABLE "Deuda" (
     "adquisicion" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "telefono" TEXT NOT NULL,
     "ci" TEXT NOT NULL,
+    "fecha_nacimiento" DATE NOT NULL,
 
     CONSTRAINT "Deuda_pkey" PRIMARY KEY ("id")
 );
