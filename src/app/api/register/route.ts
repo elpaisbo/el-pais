@@ -23,6 +23,7 @@ export async function POST(request: Request) {
         email,
         telefono,
         acciones,
+        fecha_nacimiento,
     } = user;
     const payment = {
         appkey: process.env.API_KEY,
@@ -74,6 +75,7 @@ export async function POST(request: Request) {
             telefono,
             idDeuda: res.data.id_transaccion,
             idcompra: payment.identificador_deuda,
+            fecha_nacimiento,
         },
     });
     return NextResponse.json(res.data);
