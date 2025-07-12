@@ -2,6 +2,16 @@ import React from 'react';
 import { useFormContext } from 'react-hook-form';
 import ErrorMessage from './ErrorMessage';
 
+interface MesOption {
+    value: number;
+    label: string;
+}
+
+interface BirthdateOptions {
+    meses: MesOption[];
+    getDiasValidosPorMes: (mes: number | null, año: number | null) => number;
+}
+
 interface BirthdateInputProps {
     id: string;
     label: string;
@@ -67,7 +77,7 @@ const BirthdateInput: React.FC<BirthdateInputProps> = ({ id, label, validations,
                     onChange={(e) => handleChange('mes', e.target.value)}
                 >
                     <option value="">Mes</option>
-                    {options.meses.map((mes: any) => (
+                    {options.meses.map((mes: MesOption) => (
                         <option key={mes.value} value={mes.value}>{mes.label}</option>
                     ))}
                 </select>
