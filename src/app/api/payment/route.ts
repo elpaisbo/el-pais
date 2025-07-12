@@ -153,7 +153,7 @@ async function createNewRegistro(payment: any) {
                 idcompra: payment.idcompra,
                 nacionalidad: payment.nacionalidad,
                 telefono: payment.telefono,
-                fecha_nacimiento: payment.fecha_nacimiento,
+                fecha_nacimiento: payment.fecha_nacimiento || new Date('1990-01-01'),
             },
         }),
         prismaClient.deuda.delete({
