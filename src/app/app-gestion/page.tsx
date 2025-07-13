@@ -17,9 +17,9 @@ function AppGestion() {
                 un mensaje al email: <span>accionescyv@elpais.bo</span>
             </p>
             <p className="text-center">
-                ESTAMOS TRABAJANDO PARA QUE A PARTIR DEL MES DE AGOSTO PUEDAS
-                HACER LA GESTIÓN DE TUS ACCIONES EN LÍNEA, CUALQUIER DUDA,
-                REALIZA TU CONSULTA A LOS SIGUIENTES CONTACTOS
+                ESTAMOS TRABAJANDO PARA QUE PUEDAS
+                GESTIONAR TUS ACCIONES EN LÍNEA.
+                CUALQUIER DUDA, CONSULTA A LOS SIGUIENTES CONTACTOS
             </p>
             <div className="grid grid-rows-2 md:grid-rows-1 md:grid-cols-2">
                 <Image
