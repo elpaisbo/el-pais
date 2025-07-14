@@ -8,4 +8,9 @@ type Register = {
     email: string;
     telefono: string;
     ci: string;
+    fechaNacimiento: {
+        dia: string;
+        mes: string;
+        año: string;
+    };
 };
