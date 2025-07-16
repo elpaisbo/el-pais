@@ -54,7 +54,8 @@ export async function POST(request: Request) {
 
     let fecha_nacimiento_db: string;
     try {
-        fecha_nacimiento_db = transformFormToDatabase(fechaNacimiento);
+        const { dia, mes, año } = fechaNacimiento;
+        fecha_nacimiento_db = `${año}-${mes.padStart(2, '0')}-${dia.padStart(2, '0')}`;
         console.log("=== DEBUG TRANSFORMACIÓN FECHA ===");
         console.log("fechaNacimiento original:", fechaNacimiento);
         console.log("fecha_nacimiento_db:", fecha_nacimiento_db);
