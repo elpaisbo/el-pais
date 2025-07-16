@@ -14,6 +14,7 @@ type Req = {
 };
 
 export async function POST(request: Request) {
+    try {
     const user = await request.json();
     const {
         nombre,
@@ -43,6 +44,17 @@ export async function POST(request: Request) {
         );
     }
 
+    if (!nombre || !apellido || !ci || !email || !telefono || !acciones) {
+        console.error("ERROR: Campos requeridos faltantes");
+        return NextResponse.json(
+            { 
+                error: "Campos requeridos faltantes", 
+                required: ["nombre", "apellido", "ci", "email", "telefono", "acciones", "fechaNacimiento"]
+            }, 
+            { status: 400 }
+        );
+    }
+        
     const isValidDate = validateFechaNacimiento(fechaNacimiento);
     if (!isValidDate) {
         console.error("ERROR: Fecha de nacimiento inválida");
@@ -55,11 +67,23 @@ export async function POST(request: Request) {
     let fecha_nacimiento_db: string;
     try {
         const { dia, mes, año } = fechaNacimiento;
+
+        if (!dia || !mes || !año) {
+            throw new Error("Componentes de fecha faltantes");
+        }
+
         fecha_nacimiento_db = `${año}-${mes.padStart(2, '0')}-${dia.padStart(2, '0')}`;
+        
         console.log("=== DEBUG TRANSFORMACIÓN FECHA ===");
         console.log("fechaNacimiento original:", fechaNacimiento);
         console.log("fecha_nacimiento_db:", fecha_nacimiento_db);
         console.log("===================================");
+
+        const dateTest = new Date(fecha_nacimiento_db);
+        if (isNaN(dateTest.getTime())) {
+            throw new Error("Fecha transformada inválida");
+        }
+        
     } catch (error) {
         console.error("ERROR: Error al transformar fecha:", error);
         return NextResponse.json(
@@ -101,12 +125,29 @@ export async function POST(request: Request) {
         apellido_cliente: apellido,
     };
 
-    try {
+        console.log("=== DEBUG LLAMADA A LIBELULA ===");
+        console.log("URL:", LibelulaURL);
+        console.log("Payment data:", JSON.stringify(payment, null, 2));
+        console.log("===============================");
+        
         const res = await axios.post(LibelulaURL, payment, {
         headers: {
             "Content-Type": "application/json",
         },
     });
+
+        console.log("=== DEBUG RESPUESTA DE LIBELULA ===");
+        console.log("Status:", res.status);
+        console.log("Response:", res.data);
+        console.log("===================================");
+
+        if (!res.data?.id_transaccion) {
+            console.error("ERROR: Respuesta de Libelula sin id_transaccion");
+            return NextResponse.json(
+                { error: "Error en la respuesta del procesador de pagos" }, 
+                { status: 500 }
+            );
+        }        
         
         console.log("=== DEBUG ANTES DE CREAR EN DB ===");
         console.log("Datos que se van a insertar:", {
@@ -141,13 +182,86 @@ export async function POST(request: Request) {
 
         console.log("=== REGISTRO CREADO EXITOSAMENTE ===");
         console.log("newPayment:", newPayment);
+        console.log("====================================");
 
-    return NextResponse.json(res.data);
-} catch (error) {
+        return NextResponse.json({
+            success: true,
+            message: "Registro creado exitosamente",
+            data: res.data,
+            debug: {
+                fecha_original: fechaNacimiento,
+                fecha_transformada: fecha_nacimiento_db,
+                id_transaccion: res.data.id_transaccion,
+                db_record_id: newPayment.id
+            }
+        });
+        
+    } catch (error) {
+        console.error("=== ERROR GENERAL ===");
         console.error("Error creating payment:", error);
+        
+        // Manejo específico de errores
+        if (axios.isAxiosError(error)) {
+            console.error("Error de Axios:", error.response?.data || error.message);
+            return NextResponse.json(
+                { 
+                    error: "Error al comunicarse con el procesador de pagos",
+                    details: error.response?.data?.message || error.message
+                }, 
+                { status: 502 }
+            );
+        }
+        
+        if (error instanceof Error && error.message.includes('Prisma')) {
+            console.error("Error de base de datos:", error.message);
+            return NextResponse.json(
+                { 
+                    error: "Error al guardar en la base de datos",
+                    details: error.message
+                }, 
+                { status: 500 }
+            );
+        }
+        
         return NextResponse.json(
-            { error: "Error interno del servidor" }, 
+            { 
+                error: "Error interno del servidor",
+                details: error instanceof Error ? error.message : "Error desconocido"
+            }, 
             { status: 500 }
         );
+    } finally {
+        // Cerrar conexión de Prisma
+        await prismaClient.$disconnect();
     }
+}
+
+// Handler para GET (información del endpoint)
+export async function GET() {
+    return NextResponse.json({
+        endpoint: "/api/register",
+        method: "POST",
+        description: "Registro de usuarios para compra de acciones",
+        integration: "Libelula Payment Gateway",
+        database: "PostgreSQL via Prisma",
+        expectedFormat: {
+            nombre: "string",
+            apellido: "string", 
+            ci: "string",
+            domicilio: "string",
+            nacionalidad: "string",
+            email: "string",
+            telefono: "string",
+            acciones: "number",
+            fechaNacimiento: {
+                dia: "string",
+                mes: "string", 
+                año: "string"
+            }
+        },
+        transformacion: {
+            input: "{dia: '15', mes: '7', año: '1990'}",
+            output: "1990-07-15"
+        }
+    });
 }
