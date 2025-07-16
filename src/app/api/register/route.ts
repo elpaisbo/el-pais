@@ -1,6 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
 import axios from "axios";
+import { transformFormToDatabase, validateFechaNacimiento } from "../../../utils/transformers";
 
 const prismaClient = new PrismaClient();
 const LibelulaURL =
@@ -23,27 +24,49 @@ export async function POST(request: Request) {
         email,
         telefono,
         acciones,
-        fecha_nacimiento,
+        fechaNacimiento,
     } = user;
 
-    // Debug: Verificar todos los valores recibidos
     console.log("=== DEBUG DATOS RECIBIDOS ===");
     console.log("user completo:", JSON.stringify(user, null, 2));
-    console.log("fecha_nacimiento:", fecha_nacimiento);
-    console.log("tipo fecha_nacimiento:", typeof fecha_nacimiento);
-    console.log("fecha_nacimiento existe:", fecha_nacimiento !== undefined);
-    console.log("fecha_nacimiento no es null:", fecha_nacimiento !== null);
+    console.log("fechaNacimiento:", fechaNacimiento);
+    console.log("tipo fechaNacimiento:", typeof fechaNacimiento);
+    console.log("fechaNacimiento existe:", fechaNacimiento !== undefined);
+    console.log("fechaNacimiento no es null:", fechaNacimiento !== null);
     console.log("================================");
 
-    // Validación para asegurar que fecha_nacimiento existe
-    if (!fecha_nacimiento) {
-        console.error("ERROR: fecha_nacimiento es requerida pero no está presente");
+    if (!fechaNacimiento) {
+        console.error("ERROR: fechaNacimiento es requerida pero no está presente");
         return NextResponse.json(
-            { error: "fecha_nacimiento es requerida" }, 
+            { error: "fechaNacimiento es requerida" }, 
             { status: 400 }
         );
     }
 
+    const validationResult = validateFechaNacimiento(fechaNacimiento);
+    if (!validationResult.isValid) {
+        console.error("ERROR: Fecha de nacimiento inválida:", validationResult.error);
+        return NextResponse.json(
+            { error: `Fecha de nacimiento inválida: ${validationResult.error}` }, 
+            { status: 400 }
+        );
+    }
+
+    let fecha_nacimiento_db: string;
+    try {
+        fecha_nacimiento_db = transformFormToDatabase(fechaNacimiento);
+        console.log("=== DEBUG TRANSFORMACIÓN FECHA ===");
+        console.log("fechaNacimiento original:", fechaNacimiento);
+        console.log("fecha_nacimiento_db:", fecha_nacimiento_db);
+        console.log("===================================");
+    } catch (error) {
+        console.error("ERROR: Error al transformar fecha:", error);
+        return NextResponse.json(
+            { error: "Error al procesar fecha de nacimiento" }, 
+            { status: 400 }
+        );
+    }
+    
     const payment = {
         appkey: process.env.API_KEY,
         email_cliente: email,
@@ -96,7 +119,7 @@ export async function POST(request: Request) {
             telefono,
             idDeuda: res.data.id_transaccion,
             idcompra: payment.identificador_deuda,
-            fecha_nacimiento,
+            fecha_nacimiento: fecha_nacimiento_db,
         });
 
     const newPayment = await prismaClient.deuda.create({
@@ -111,7 +134,7 @@ export async function POST(request: Request) {
             telefono,
             idDeuda: res.data.id_transaccion,
             idcompra: payment.identificador_deuda,
-            fecha_nacimiento,
+            fecha_nacimiento: fecha_nacimiento_db,
         },
     });
 
