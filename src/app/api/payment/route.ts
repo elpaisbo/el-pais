@@ -6,7 +6,7 @@ const fs = require("fs");
 const nodemailer = require("nodemailer");
 import { Deuda, PrismaClient } from "@prisma/client";
 import pdfTemplate from "./pdfTemplate/template";
-import { validateFechaNacimiento } from "../../../utils/transformers";
+import { validateFechaNacimiento } from "../../../../utils/transformers";
 const prismaClient = new PrismaClient();
 const emailUser = process.env.EMAIL_USER;
 const pass = process.env.EMAIL_PASS;
