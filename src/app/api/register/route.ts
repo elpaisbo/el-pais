@@ -43,11 +43,11 @@ export async function POST(request: Request) {
         );
     }
 
-    const validationResult = validateFechaNacimiento(fechaNacimiento);
-    if (!validationResult.isValid) {
-        console.error("ERROR: Fecha de nacimiento inválida:", validationResult.error);
+    const isValidDate = validateFechaNacimiento(fechaNacimiento);
+    if (!isValidDate) {
+        console.error("ERROR: Fecha de nacimiento inválida");
         return NextResponse.json(
-            { error: `Fecha de nacimiento inválida: ${validationResult.error}` }, 
+            { error: "Fecha de nacimiento inválida" }, 
             { status: 400 }
         );
     }
