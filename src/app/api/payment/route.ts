@@ -6,6 +6,7 @@ const fs = require("fs");
 const nodemailer = require("nodemailer");
 import { Deuda, PrismaClient } from "@prisma/client";
 import pdfTemplate from "./pdfTemplate/template";
+import { validateFechaNacimiento } from "../../../utils/transformers";
 const prismaClient = new PrismaClient();
 const emailUser = process.env.EMAIL_USER;
 const pass = process.env.EMAIL_PASS;
@@ -153,7 +154,9 @@ async function createNewRegistro(payment: any) {
                 idcompra: payment.idcompra,
                 nacionalidad: payment.nacionalidad,
                 telefono: payment.telefono,
-                fecha_nacimiento: payment.fecha_nacimiento || new Date('1990-01-01'),
+                fecha_nacimiento: payment.fecha_nacimiento 
+                    ? `${payment.fecha_nacimiento.año}-${payment.fecha_nacimiento.mes.padStart(2, '0')}-${payment.fecha_nacimiento.dia.padStart(2, '0')}`
+                    : '1990-01-01',
             },
         }),
         prismaClient.deuda.delete({
