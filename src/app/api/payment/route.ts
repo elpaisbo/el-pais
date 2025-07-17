@@ -148,15 +148,15 @@ async function createNewRegistro(payment: any) {
                 acciones: payment.acciones,
                 nombre: payment.nombre,
                 apellido: payment.apellido,
+                fecha_nacimiento: payment.fecha_nacimiento 
+                    ? `${payment.fecha_nacimiento.año}-${payment.fecha_nacimiento.mes.padStart(2, '0')}-${payment.fecha_nacimiento.dia.padStart(2, '0')}`
+                    : '1990-01-01',
                 ci: payment.ci,
                 domicilio: payment.domicilio,
                 email: payment.email,
                 idcompra: payment.idcompra,
                 nacionalidad: payment.nacionalidad,
                 telefono: payment.telefono,
-                fecha_nacimiento: payment.fecha_nacimiento 
-                    ? `${payment.fecha_nacimiento.año}-${payment.fecha_nacimiento.mes.padStart(2, '0')}-${payment.fecha_nacimiento.dia.padStart(2, '0')}`
-                    : '1990-01-01',
             },
         }),
         prismaClient.deuda.delete({
