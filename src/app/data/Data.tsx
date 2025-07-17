@@ -44,7 +44,7 @@ export const navLinks = [
         to: "/actividades",
     },
     {
-        text: "Periódico El País",
+        text: "Diario El País",
         to: "https://elpais.bo/",
     },
 ];
