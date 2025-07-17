@@ -7,7 +7,7 @@ import { useState } from "react";
 import { formInputs } from "../app/data/Data";
 import { motion, AnimatePresence } from "framer-motion";
 import Resumen from "./Resumen";
-import Pago from "./Pago";
+import Pago from "./Pago";  // Com
 import useCart from "@/app/hooks/useShoppingCart";
 
 type RegisterFormValues = {
