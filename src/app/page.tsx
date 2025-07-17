@@ -22,12 +22,12 @@ export default function Home() {
                 </h2>
                 <p className="max-h-32 overflow-y-auto text-justify scrollbar px-2">
                     {`El reconocido periódico El País S.A. de Bolivia, que celebra
-                    sus 32 años de trayectoria en junio de 2023, ha lanzado una
+                    sus 34 años de trayectoria en junio de 2025, ha lanzado una
                     campaña de capitalización denominada "Cómprate El País". A
                     través de esta iniciativa, busca incluir a ciudadanos
                     interesados en el periodismo como accionistas de El País
-                    S.A.. La venta de acciones, valoradas en Bs100 cada una, se
-                    llevará a cabo mediante una plataforma web y se espera que
+                    S.A.. La venta de acciones, valoradas en Bs. 100 cada una, se
+                    llevará a cabo en esta plataforma web y se espera que
                     los accionistas no solo obtengan beneficios financieros,
                     sino también una suscripción anual gratuita y la posibilidad
                     de influir en las decisiones y la agenda noticiosa. El
