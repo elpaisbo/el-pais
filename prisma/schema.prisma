@@ -42,5 +42,5 @@ model Deuda {
   adquisicion  DateTime @default(now())
   telefono     String
   ci           String
-  fecha_nacimiento DateTime
+  fecha_nacimiento DateTime   // Com
 }
