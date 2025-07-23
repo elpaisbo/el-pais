@@ -44,7 +44,10 @@ export default function Nav({ setNavMenu }: NavProps) {
                                 strokeWidth: 1.25,
                             }}
                         >
-                            <Menu />
+                            <Menu 
+                              onPointerEnterCapture={undefined} 
+                              onPointerLeaveCapture={undefined} 
+                            />
                         </IconoirProvider>
                     </button>
                 </div>
@@ -61,7 +64,10 @@ export default function Nav({ setNavMenu }: NavProps) {
                             {cart}
                         </p>
 
-                        <ShoppingBag />
+                        <ShoppingBag 
+                          onPointerEnterCapture={undefined} 
+                          onPointerLeaveCapture={undefined} 
+                        />
                     </IconoirProvider>
                 </div>
             </div>
