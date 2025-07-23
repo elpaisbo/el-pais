@@ -19,14 +19,21 @@ function Pago({ data }: any) {
         exit: { opacity: 0 },
     };
     const newData = { ...data, acciones: cart };
+
     const mutation = useMutation({
         mutationFn: postRegister,
         onSuccess: (res) => {
-            console.log(res.data.url_pasarela_pagos);
-            push(res.data.url_pasarela_pagos);
+            // Check if the property exists and is a string
+            const url = res?.data?.url_pasarela_pagos;
+            if (typeof url === 'string') {
+                push(url);
+            } else {
+                console.error('No valid URL for payment gateway:', res);
+                // Optionally show an error to the user here
+            }
         },
     });
-
+    
     function handleSubmit() {
         mutation.mutate(newData);
     }
