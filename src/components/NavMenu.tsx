@@ -38,7 +38,10 @@ function NavMenu({ setNavMenu }: NavMenuProps) {
                     onClick={() => setNavMenu(false)}
                 >
                     <IconoirProvider>
-                        <Cancel />
+                        <Cancel 
+                          onPointerEnterCapture={undefined} 
+                          onPointerLeaveCapture={undefined} 
+                        />
                     </IconoirProvider>
                 </button>
                 {/* <NavLink text="Inicio" to="/" setNavMenu={setNavMenu} /> */}
