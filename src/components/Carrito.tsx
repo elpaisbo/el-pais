@@ -1,7 +1,8 @@
 "use client";
 import { useState } from "react";
 import Button from "./Button";
-import { IconoirProvider, Cart } from "iconoir-react";
+import { Cart } from "iconoir-react";
+import IconoirWrapper from "./IconoirWrapper";
 import useCart from "@/app/hooks/useShoppingCart";
 
 function Carrito() {
@@ -20,9 +21,9 @@ function Carrito() {
                 <Button text="+" onClick={agregar} />
             </div>
             <button className="bg-red-500 flex items-center p-4 rounded-md text-white gap-2">
-                <IconoirProvider>
+                <IconoirWrapper>
                     <Cart />
-                </IconoirProvider>
+                </IconoirWrapper>
                 Añadir al carrito
             </button>
         </div>
