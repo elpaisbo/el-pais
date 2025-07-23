@@ -41,7 +41,7 @@ function Actividades() {
                             onClick={() => setOrganigrama(false)}
                         >
                             <IconoirProvider>
-                                <Cancel />
+                                <Cancel width={24} height={24} />
                             </IconoirProvider>
                         </button>
                         <Image
