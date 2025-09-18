@@ -64,7 +64,7 @@ export async function POST(request: Request) {
         );
     }
 
-    let fecha_nacimiento_db: string;
+    let fecha_nacimiento_db: Date;
     try {
         const { dia, mes, año } = fechaNacimiento;
 
@@ -72,15 +72,16 @@ export async function POST(request: Request) {
             throw new Error("Componentes de fecha faltantes");
         }
 
-        fecha_nacimiento_db = `${año}-${mes.padStart(2, '0')}-${dia.padStart(2, '0')}`;
+        fecha_nacimiento_db = new Date(`${año}-${mes.padStart(2, '0')}-${dia.padStart(2, '0')}T00:00:00.000Z`);
         
         console.log("=== DEBUG TRANSFORMACIÓN FECHA ===");
         console.log("fechaNacimiento original:", fechaNacimiento);
         console.log("fecha_nacimiento_db:", fecha_nacimiento_db);
+        console.log("fecha_nacimiento_db ISO:", fecha_nacimiento_db.toISOString());
+        console.log("fecha_nacimiento_db válida:", !isNaN(fecha_nacimiento_db.getTime()));
         console.log("===================================");
 
-        const dateTest = new Date(fecha_nacimiento_db);
-        if (isNaN(dateTest.getTime())) {
+      if (isNaN(fecha_nacimiento_db.getTime())) {
             throw new Error("Fecha transformada inválida");
         }
         
@@ -163,6 +164,7 @@ export async function POST(request: Request) {
             idDeuda: res.data.id_transaccion,
             idcompra: payment.identificador_deuda,
             fecha_nacimiento: fecha_nacimiento_db,
+            fecha_nacimiento_iso: fecha_nacimiento_db.toISOString(),
         });
 
     const newPayment = await prismaClient.deuda.create({
@@ -191,7 +193,7 @@ export async function POST(request: Request) {
             data: res.data,
             debug: {
                 fecha_original: fechaNacimiento,
-                fecha_transformada: fecha_nacimiento_db,
+                fecha_transformada: fecha_nacimiento_db.toISOString(),
                 id_transaccion: res.data.id_transaccion,
                 db_record_id: newPayment.id
             }
@@ -262,7 +264,7 @@ export async function GET() {
         },
         transformacion: {
             input: "{dia: '15', mes: '7', año: '1990'}",
-            output: "1990-07-15"
+            output: "Date object -> 1990-07-15T00:00:00.000Z"
         }
     });
 }
