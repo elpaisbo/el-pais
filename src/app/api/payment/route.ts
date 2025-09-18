@@ -149,8 +149,8 @@ async function createNewRegistro(payment: any) {
                 nombre: payment.nombre,
                 apellido: payment.apellido,
                 fecha_nacimiento: payment.fecha_nacimiento 
-                    ? `${payment.fecha_nacimiento.año}-${payment.fecha_nacimiento.mes.padStart(2, '0')}-${payment.fecha_nacimiento.dia.padStart(2, '0')}`
-                    : '1990-01-01',
+                    ? new Date(`${payment.fecha_nacimiento.año}-${payment.fecha_nacimiento.mes.padStart(2, '0')}-${payment.fecha_nacimiento.dia.padStart(2, '0')}T00:00:00.000Z`)
+                    : new Date('1990-01-01T00:00:00.000Z'),
                 ci: payment.ci,
                 domicilio: payment.domicilio,
                 email: payment.email,
