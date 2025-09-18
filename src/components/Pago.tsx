@@ -20,15 +20,18 @@ function Pago({ data }: any) {
         mutationFn: postRegister,
         onSuccess: (res) => {
             console.log('Respuesta completa:', res); // Para debugging
-            // Check if the property exists and is a string
-            const url = res?.data?.url_pasarela_pagos;
+            console.log('Data interna:', res?.data?.data); // Para ver la estructura interna
+            
+            // Acceder a la URL dentro de res.data.data.url_pasarela_pagos
+            const url = res?.data?.data?.url_pasarela_pagos;
+            
             if (typeof url === 'string' && url.startsWith('http')) {
                 console.log('Redirigiendo a:', url); // Para debugging
                 // Usar window.location.href para URLs externas
                 window.location.href = url;
             } else {
                 console.error('No valid URL for payment gateway:', res);
-                // Optionally show an error to the user here
+                console.error('URL encontrada:', url); // Para debugging
                 alert('Error: No se pudo obtener la URL de pago. Por favor intenta de nuevo.');
             }
         },
