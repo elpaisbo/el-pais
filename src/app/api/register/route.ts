@@ -130,10 +130,11 @@ export async function POST(request: Request) {
         console.log("Payment data:", JSON.stringify(payment, null, 2));
         console.log("===============================");
         
-        const res = await axios.post(LibelulaURL, payment, {
+    const res = await axios.post(LibelulaURL, payment, {
         headers: {
             "Content-Type": "application/json",
         },
+        timeout: 30000,
     });
 
         console.log("=== DEBUG RESPUESTA DE LIBELULA ===");
