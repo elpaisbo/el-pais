@@ -18,17 +18,17 @@ export default function Home() {
         <main className="flex min-h-screen flex-col items-center gap-6 py-4 px-6 sm:px-16 md:px-20 lg:px-30">
             <div className="bg-gray-300 p-4 md:px-8 flex flex-col gap-2">
                 <h2 className="text-center font-bold">
-                    “Cómprate El País”, El País S.A. pone a disposición de sus
+                    “Cómprate El País”, El País S.A. puso a disposición de sus
                     lectores 40.000 acciones
                 </h2>
                 <p className="max-h-32 overflow-y-auto text-justify scrollbar px-2">
                     {`El reconocido periódico El País S.A. de Bolivia, que celebra
-                    sus 34 años de trayectoria en junio de 2025, ha lanzado una
+                    sus 35 años de trayectoria en junio de 2026, lanzó una
                     campaña de capitalización denominada "Cómprate El País". A
-                    través de esta iniciativa, busca incluir a ciudadanos
+                    través de esta iniciativa, incluyó a ciudadanos
                     interesados en el periodismo como accionistas de El País
                     S.A.. La venta de acciones, valoradas en Bs. 100 cada una, se
-                    llevará a cabo en esta plataforma web y se espera que
+                    llevó a cabo en esta plataforma web esperando que
                     los accionistas no solo obtengan beneficios financieros,
                     sino también una suscripción anual gratuita y la posibilidad
                     de influir en las decisiones y la agenda noticiosa. El
@@ -39,8 +39,8 @@ export default function Home() {
                     <Link className="text-red-500" href={"https://elpais.bo/"}>
                         El País
                     </Link>{" "}
-                    Esta campaña innovadora de venta de acciones busca
-                    involucrar a los lectores en la consolidación de un
+                    Esta campaña innovadora de venta de acciones involucró
+                    a los lectores en la consolidación de un
                     periodismo comprometido con la unidad y prosperidad del
                     país, aprovechando los mecanismos digitales y las pasarelas
                     de pago para facilitar la participación de cualquier
@@ -52,7 +52,7 @@ export default function Home() {
                     }
                 >
                     <button className="p-3 rounded-md bg-black text-white hover:bg-red-500 w-full">
-                        Revisa el pdf completo aquí
+                        Revisa la nota completa aquí
                     </button>
                 </Link>
             </div>
