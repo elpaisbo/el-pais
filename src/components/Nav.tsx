@@ -9,6 +9,7 @@ import { Dispatch, SetStateAction, useState } from "react";
 import NavMenu from "./NavMenu";
 import { navLinks } from "../app/data/Data";
 import Link from "next/link";
+import { PAGOS_ACTIVOS } from "@/config";
 
 type NavProps = {
     setNavMenu: Dispatch<SetStateAction<boolean>>;
@@ -51,25 +52,27 @@ export default function Nav({ setNavMenu }: NavProps) {
                         </IconoirProvider>
                     </button>
                 </div>
-                <div className="relative grid justify-items-center">
-                    <IconoirProvider
-                        iconProps={{
-                            width: "3rem",
-                            height: "3rem",
-                            color: "red",
-                            strokeWidth: 1.25,
-                        }}
-                    >
-                        <p className="absolute top-1/3 text-red-500 font-bold">
-                            {cart}
-                        </p>
+                                {PAGOS_ACTIVOS && (
+                    <div className="relative grid justify-items-center">
+                        <IconoirProvider
+                            iconProps={{
+                                width: "3rem",
+                                height: "3rem",
+                                color: "red",
+                                strokeWidth: 1.25,
+                            }}
+                        >
+                            <p className="absolute top-1/3 text-red-500 font-bold">
+                                {cart}
+                            </p>
 
-                        <ShoppingBag 
-                          onPointerEnterCapture={undefined} 
-                          onPointerLeaveCapture={undefined} 
-                        />
-                    </IconoirProvider>
-                </div>
+                            <ShoppingBag
+                              onPointerEnterCapture={undefined}
+                              onPointerLeaveCapture={undefined}
+                            />
+                        </IconoirProvider>
+                    </div>
+                )}
             </div>
         </nav>
     );
