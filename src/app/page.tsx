@@ -9,6 +9,7 @@ import InfoPdf from "@/components/InfoPdf";
 import Banner3 from "../../public/images/banners/banner3.jpg";
 import Link from "next/link";
 import Button from "../components/Button";
+import { PAGOS_ACTIVOS } from "@/config";
 
 export default function Home() {
     function handleClick() { }
@@ -66,14 +67,18 @@ export default function Home() {
                 />
             ))}
             <p className="text-center">De acuerdo a los EEFF al 31/12/2024</p>
-            <Image
-                src={DocumentIcon}
-                alt="Icono accion"
-                width={100}
-                height={50}
-            />
-            <Carrito />
-            <RegisterForm />
+                        {PAGOS_ACTIVOS && (
+                <>
+                    <Image
+                        src={DocumentIcon}
+                        alt="Icono accion"
+                        width={100}
+                        height={50}
+                    />
+                    <Carrito />
+                    <RegisterForm />
+                </>
+            )}
             <InfoPdf />
             <Banner
                 key="recorrido"
